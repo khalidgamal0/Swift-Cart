@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constant.dart';
 import '../utilis/styles.dart';
 
@@ -22,7 +22,7 @@ class CustomTextFormField extends StatelessWidget {
       this.enabledBorderColor = const Color(0xffF4F4F4),
       this.focusedBorderColor = kPrimaryColor,
       this.fillColor = const Color(0xffF4F4F4),
-      this.boarderRadius = 8,
+      this.boarderRadius,
       this.prefix,
       this.prefixColor,
       this.labelText})
@@ -42,7 +42,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function()? suffixPressed;
   final bool isClickable;
   final int maxLines;
-  final double boarderRadius;
+  final double ?boarderRadius;
   final Color disabledBorderColor;
   final Color enabledBorderColor;
   final Color focusedBorderColor;
@@ -52,6 +52,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Styles.textStyle12.copyWith(fontWeight: FontWeight.w400),
       maxLines: maxLines,
       controller: controller,
       keyboardType: type,
@@ -72,19 +73,20 @@ class CustomTextFormField extends StatelessWidget {
               )
             : null,
         disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(boarderRadius),
+            borderRadius: BorderRadius.circular(boarderRadius ??  24.w),
             borderSide: BorderSide(
               color: disabledBorderColor,
             )),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(boarderRadius),
+            borderRadius: BorderRadius.circular(boarderRadius ??  24.w,),
             borderSide: BorderSide(color: enabledBorderColor)),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(boarderRadius),
+            borderRadius: BorderRadius.circular(boarderRadius ??  24.w),
             borderSide: BorderSide(color: focusedBorderColor)),
         hintText: hintText,
         labelText: labelText,
-        hintStyle: Styles.textStyle16.copyWith(color: kPrimaryColor),
+        labelStyle: Styles.textStyle16.copyWith(color: kPrimaryColor,fontWeight: FontWeight.w400),
+        hintStyle: Styles.textStyle12.copyWith(color:  kB60Color,fontWeight: FontWeight.w400),
         suffixIcon: suffix != null
             ? IconButton(
                 onPressed: suffixPressed,
