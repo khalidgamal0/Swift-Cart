@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'features/category/presentation/view/category_view.dart';
 import 'features/home/presentation/view/home_view.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class SwiftCart extends StatelessWidget {
           fontFamily: 'Poppins',
           textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home:const HomeView(),
+        home:const CategoryView(),
       ),
     );
   }
