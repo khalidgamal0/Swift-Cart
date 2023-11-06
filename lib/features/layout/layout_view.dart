@@ -17,21 +17,20 @@ class LayoutView extends StatelessWidget {
           return Scaffold(
             body:cubit.bottomScreen[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-              selectedItemColor: kPrimaryColor,
-              backgroundColor: kSecondaryColor,
+
               currentIndex: cubit.currentIndex,
               onTap: (index) {
                 cubit.changeBottomScreen(index);
               },
               items: const [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home_sharp,), label: ''),
+                    icon: Icon(Icons.home_outlined,), label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.search_outlined,), label: ''),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.shopping_cart_outlined,), label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.person,), label: ''),
+                    icon: Icon(Icons.person_outlined,), label: ''),
               ],
               //
             ),
