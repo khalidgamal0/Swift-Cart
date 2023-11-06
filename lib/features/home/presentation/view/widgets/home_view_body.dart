@@ -29,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const CustomAppBar(),
+              const HomeAppBar(),
               Banners(x: x),
               const CustomSmoothPageIndicator(),
               SizedBox(
@@ -73,7 +73,7 @@ class HomeViewBody extends StatelessWidget {
                 childAspectRatio: 1 / 1.49,
                 children: List.generate(
                   10,
-                      (index) =>   const GridViewItem(),
+                      (index) =>   const HomeGridViewItem(),
                 ),
               ),
             ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import 'features/home/presentation/view/home_view.dart';
 
 void main() {
   runApp(const SwiftCart());
@@ -19,9 +20,9 @@ class SwiftCart extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'Poppins',
-          scaffoldBackgroundColor: Colors.white,
+          textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home:const SignUpView(),
+        home:const HomeView(),
       ),
     );
   }
