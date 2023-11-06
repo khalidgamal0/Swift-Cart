@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:swifit_cart/core/constant.dart';
 
 import 'features/category/presentation/view/category_view.dart';
 import 'features/home/presentation/view/home_view.dart';
+import 'features/layout/layout_view.dart';
 import 'features/product/presentation/view/product_view.dart';
 
 void main() {
@@ -26,9 +26,9 @@ class SwiftCart extends StatelessWidget {
           iconTheme: const IconThemeData(
             color: kPrimaryColor
           ),
-          textTheme: GoogleFonts.poppinsTextTheme(),
+          // textTheme: GoogleFonts.poppinsTextTheme(),
         ),
-        home:const ProductView(),
+        home:const LayoutView(),
       ),
     );
   }
