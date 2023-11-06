@@ -4,8 +4,8 @@ import 'package:swifit_cart/core/constant.dart';
 import 'package:swifit_cart/core/utilis/assets.dart';
 import 'package:swifit_cart/core/utilis/styles.dart';
 
+import '../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
-import 'cat_appbar.dart';
 import 'cat_list_view_item.dart';
 
 class CategoryViewBody extends StatelessWidget {
@@ -16,7 +16,7 @@ class CategoryViewBody extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(children: [
-          const CatAppbar(),
+          const CustomAppbar(text: 'Category'),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 18.h),
             child: const CustomTextFormField(

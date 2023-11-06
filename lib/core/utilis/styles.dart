@@ -13,8 +13,7 @@ abstract class Styles{
   static TextStyle textStyle12=TextStyle(
     fontSize: 12.64.sp,
     fontWeight: FontWeight.w600,
-    color: kPrimaryColor,
-
+    color: kPrimaryColor.withOpacity(.5),
   );
   static TextStyle textStyle20=TextStyle(
     fontSize: 20.25.sp,

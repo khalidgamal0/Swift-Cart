@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/constant.dart';
-import '../../../../../core/utilis/styles.dart';
+import '../constant.dart';
+import '../utilis/styles.dart';
 
-class CatAppbar extends StatelessWidget {
-  const CatAppbar({
-    super.key,
+class CustomAppbar extends StatelessWidget {
+  const CustomAppbar({
+    super.key, required this.text,
+    this.icon,
   });
 
+  final String text;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,9 +31,15 @@ class CatAppbar extends StatelessWidget {
           width: 96.w,
         ),
         Text(
-          'Category',
+          text,
           style: Styles.textStyle18,
         ),
+        const Spacer(),
+        Icon(icon,color: kPrimaryColor,),
+        SizedBox(
+          width:21.w,
+        ),
+
       ]),
     );
   }
