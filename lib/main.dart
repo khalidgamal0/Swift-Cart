@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/features/layout/layout_view.dart';
-import 'core/utilis/theme.dart';
-import 'features/auth/presentation/views/sign_up_view.dart';
-import 'features/home/presentation/view/home_view.dart';
+import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
+
 
 void main() {
   runApp(const SwiftCart());
@@ -19,7 +17,10 @@ class SwiftCart extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: lightTheme,
+        theme: ThemeData(
+          fontFamily: 'Poppins',
+          scaffoldBackgroundColor: Colors.white,
+        ),
         home:const SignUpView(),
       ),
     );
