@@ -28,6 +28,12 @@ abstract class Styles{
     color: kPrimaryColor,
 
   );
+  static TextStyle textStyle25=TextStyle(
+    fontSize: 25.sp,
+    fontWeight: FontWeight.w600,
+    color: kPrimaryColor,
+
+  );
 
 
 }

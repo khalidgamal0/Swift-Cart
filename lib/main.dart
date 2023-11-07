@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+import 'package:swifit_cart/features/layout/layout_view.dart';
+import 'core/utilis/theme.dart';
+import 'features/auth/presentation/views/sign_up_view.dart';
 import 'features/home/presentation/view/home_view.dart';
 
 void main() {
@@ -18,11 +19,8 @@ class SwiftCart extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'Poppins',
-          textTheme: GoogleFonts.poppinsTextTheme(),
-        ),
-        home:const HomeView(),
+        theme: lightTheme,
+        home:const SignUpView(),
       ),
     );
   }
