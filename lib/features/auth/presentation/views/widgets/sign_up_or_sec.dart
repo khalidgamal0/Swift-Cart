@@ -50,7 +50,7 @@ class SignUpOrSec extends StatelessWidget {
               ),
             ),
             Image.asset(
-              AssetsData.faceBook,
+              AssetsData.facebook,
               width: 32.w,
               height: 33.03.h,
               fit: BoxFit.contain,

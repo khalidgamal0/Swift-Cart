@@ -5,8 +5,8 @@ import '../../../../../core/constant.dart';
 import '../../../../../core/utilis/assets.dart';
 import '../../../../../core/utilis/styles.dart';
 
-class GridViewItem extends StatelessWidget {
-  const GridViewItem({
+class HomeGridViewItem extends StatelessWidget {
+  const HomeGridViewItem({
     super.key,
   });
 
