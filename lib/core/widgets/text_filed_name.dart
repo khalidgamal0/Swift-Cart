@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 
 class TextFieldName extends StatelessWidget {
   const TextFieldName({super.key, required this.name});
