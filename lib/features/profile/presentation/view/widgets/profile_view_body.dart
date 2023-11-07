@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/functions/navigator_push.dart';
+import 'package:swifit_cart/core/utils/functions/navigator_push.dart';
 import 'package:swifit_cart/core/widgets/custom_row_service_container.dart';
 import 'package:swifit_cart/features/profile/data/models/profile_service_model.dart';
 

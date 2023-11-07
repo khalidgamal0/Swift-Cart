@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/features/layout/layout_view.dart';
-import 'core/utilis/theme.dart';
+import 'core/utils/theme.dart';
 import 'features/auth/presentation/views/sign_up_view.dart';
-import 'features/home/presentation/view/home_view.dart';
 
 void main() {
   runApp(const SwiftCart());
