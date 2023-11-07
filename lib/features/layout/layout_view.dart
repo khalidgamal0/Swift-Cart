@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../core/constant.dart';
 import 'manager/layout_cubit.dart';
 
 class LayoutView extends StatelessWidget {

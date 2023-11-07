@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/constant.dart';
-import '../../../../../core/utilis/assets.dart';
-import '../../../../../core/utilis/styles.dart';
+import '../../../../../core/utils/assets.dart';
+import '../../../../../core/utils/styles.dart';
 
 class CatListViewItem extends StatelessWidget {
   const CatListViewItem({

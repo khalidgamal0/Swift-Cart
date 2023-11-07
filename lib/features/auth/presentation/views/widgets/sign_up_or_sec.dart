@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/assets.dart';
-import 'package:swifit_cart/core/utilis/resposive_size_config.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/assets.dart';
+import 'package:swifit_cart/core/utils/resposive_size_config.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 
 class SignUpOrSec extends StatelessWidget {

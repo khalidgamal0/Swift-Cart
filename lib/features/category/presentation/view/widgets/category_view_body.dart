@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/assets.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
-
 import '../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../core/widgets/custom_text_form_field.dart';
 import 'cat_list_view_item.dart';
