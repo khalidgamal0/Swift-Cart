@@ -6,7 +6,7 @@ import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/auth/presentation/views/verification_code_view.dart';
-import 'package:swifit_cart/features/auth/presentation/views/widgets/text_filed_name.dart';
+import 'package:swifit_cart/core/widgets/text_filed_name.dart';
 
 class ResetPasswordTextFormToEndSec extends StatelessWidget {
   const ResetPasswordTextFormToEndSec({super.key});
