@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../core/constant.dart';
 import 'manager/layout_cubit.dart';
 
 class LayoutView extends StatelessWidget {
@@ -17,7 +15,6 @@ class LayoutView extends StatelessWidget {
           return Scaffold(
             body:cubit.bottomScreen[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-
               currentIndex: cubit.currentIndex,
               onTap: (index) {
                 cubit.changeBottomScreen(index);
