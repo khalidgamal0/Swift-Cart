@@ -7,5 +7,6 @@ class AssetsData{
   static const facebook='assets/image/facebook.png';
   static const phone='assets/image/phone.png';
   static const  iPhone ='assets/image/iphone.png';
+  static const  error ='assets/image/errorPage.png';
 
 }

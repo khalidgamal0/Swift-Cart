@@ -36,7 +36,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                   'Product details',
                   style: Styles.textStyle18.copyWith(
                     fontWeight: FontWeight.w400,
-                    color: kPrimaryColor.withOpacity(.75),
+                    color:isDown?kPrimaryColor: kPrimaryColor.withOpacity(.75),
                   ),
                 ),
                 const Spacer(),
