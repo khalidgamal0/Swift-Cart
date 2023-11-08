@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'core/utils/theme.dart';
-import 'features/auth/presentation/views/sign_up_view.dart';
+import 'package:swifit_cart/core/utils/theme.dart';
+import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
+import 'features/product_details/presentation/views/product_details_view.dart';
+
 
 void main() {
   runApp(const SwiftCart());
@@ -12,14 +14,17 @@ class SwiftCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
+      builder: (_, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: lightTheme,
+          home: child,
+        );
+      },
       designSize:const Size (390,844),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: lightTheme,
-        home:const SignUpView(),
-      ),
+      child: const ProductDetailsView(),
     );
   }
 }
