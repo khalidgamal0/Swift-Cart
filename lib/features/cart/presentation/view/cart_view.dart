@@ -10,7 +10,7 @@ class CartView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Your cart"),
       ),
-      body: CartViewBody(),
+      body: const CartViewBody(),
     );
   }
 }

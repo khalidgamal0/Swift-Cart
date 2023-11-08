@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 
 class NotificationViewBody extends StatefulWidget {
@@ -27,7 +27,7 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
                   fontWeight: FontWeight.w500
                 ),
               ),
-              Spacer(),
+              const Spacer(),
               Transform.scale(
                 scale: 1.2,
                 child: Switch(
@@ -45,7 +45,7 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
               ),
             ],
           ),
-          ResponsiveSizedBox(
+          const ResponsiveSizedBox(
             height: 8,
           ),
           Text("turning on notification means that you will receive our offers and news directly to your phone.",

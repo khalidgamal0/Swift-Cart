@@ -10,7 +10,7 @@ class LogOutView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Log out"),
       ),
-      body: LogOutViewBody(),
+      body: const LogOutViewBody(),
     );
   }
 }
