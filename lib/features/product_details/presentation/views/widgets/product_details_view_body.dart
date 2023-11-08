@@ -56,7 +56,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
             ),
             if (isDown == true)
               Text(
-                'text',
+                text,
                 style: Styles.textStyle16,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
