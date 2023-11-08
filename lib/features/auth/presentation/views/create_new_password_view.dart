@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utilis/functions/navigator_push.dart';
+import 'package:swifit_cart/core/utils/functions/navigator_push.dart';
 
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/create_new_password_text_field_sec.dart';

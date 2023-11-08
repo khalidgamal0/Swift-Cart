@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/constant.dart';
-import '../../../../../core/utilis/styles.dart';
+import '../../../../../core/utils/styles.dart';
 
 class FirstSection extends StatelessWidget {
   const FirstSection({

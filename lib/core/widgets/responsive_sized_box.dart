@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swifit_cart/core/utilis/resposive_size_config.dart';
+import 'package:swifit_cart/core/utils/resposive_size_config.dart';
 
 class ResponsiveSizedBox extends StatelessWidget {
   const ResponsiveSizedBox({super.key, this.height, this.width, this.child});

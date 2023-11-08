@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/core/utilis/assets.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/assets.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import '../../../../../core/constant.dart';
 import 'appbar.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swifit_cart/core/utilis/styles.dart';
+import 'package:swifit_cart/core/utils/styles.dart';
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({Key? key, this.onPressed, required this.text, this.textStyle,}) : super(key: key);
   final void Function()? onPressed ;
