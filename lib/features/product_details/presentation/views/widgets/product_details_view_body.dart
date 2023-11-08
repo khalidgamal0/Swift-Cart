@@ -3,58 +3,76 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/product_details/presentation/views/widgets/product_details_first_sec.dart';
-import '../../../../../core/widgets/custom_appbar.dart';
+import '../../../../../core/constant.dart';
+import '../../../../../core/utils/styles.dart';
 import 'colors_sec.dart';
-import 'list_tile_item.dart';
 
-class ProductDetailsViewBody extends StatelessWidget {
+class ProductDetailsViewBody extends StatefulWidget {
   const ProductDetailsViewBody({Key? key}) : super(key: key);
+
+  @override
+  State<ProductDetailsViewBody> createState() => _ProductDetailsViewBodyState();
+}
+
+class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
+  bool isDown = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomAppbar(
-                text: 'Laptops',
-                icon: Icons.shopping_cart_outlined,
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 25.w, right: 24),
-                child: Column(
-                  children: [
-                    const ProductDetailsFirstSec(),
-                    const ColorsSec(),
-                    const ResponsiveSizedBox(
-                      height: 16,
-                    ),
-                    ListTileItem(
-                      onTap: (){},
-                      text: 'Product details',
-                    ),
-                    const ResponsiveSizedBox(
-                      height: 32.98,
-                    ),
-                    ListTileItem(
-                      onTap: (){},
-                      text: 'shipping details',
-                    ),
-                    const ResponsiveSizedBox(
-                      height: 32.98,
-                    ),
-                    ListTileItem(
-                      onTap: (){},
-                      text: 'Return Policy',
-                    ),
-                    const CustomButton(buttonName: 'Add to cart'),
-                  ],
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const ProductDetailsFirstSec(),
+            const ColorsSec(),
+            const ResponsiveSizedBox(
+              height: 16,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Product details',
+                  style: Styles.textStyle18.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: kPrimaryColor.withOpacity(.75),
+                  ),
                 ),
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isDown = !isDown;
+                    });
+                  },
+                  icon: Icon(
+                    isDown ?Icons.arrow_upward:Icons.arrow_downward,
+                    color: kPrimaryColor.withOpacity(.75),
+                    size: 16,
+                  ),
+                )
+              ],
+            ),
+            if (isDown == true)
+              Text(
+                text,
+                style: Styles.textStyle16,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 5,
+                textAlign: TextAlign.start,
               ),
-            ]),
+            const ResponsiveSizedBox(
+              height: 32.98,
+            ),
+            const Spacer(),
+            const CustomButton(buttonName: 'Add to cart'),
+            const ResponsiveSizedBox(
+              height: 8,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-

@@ -29,7 +29,7 @@ class ColorContainerItem extends StatelessWidget {
           children: [
             Padding(
               padding:  EdgeInsets.symmetric(horizontal: 8.0.w),
-              child:  CircleAvatar(radius: 10,
+              child:  CircleAvatar(radius: 8,
                 backgroundColor: color,
               ),
             ),
