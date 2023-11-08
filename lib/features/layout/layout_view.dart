@@ -15,7 +15,6 @@ class LayoutView extends StatelessWidget {
           return Scaffold(
             body:cubit.bottomScreen[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
-
               currentIndex: cubit.currentIndex,
               onTap: (index) {
                 cubit.changeBottomScreen(index);

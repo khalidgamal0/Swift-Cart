@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:swifit_cart/features/auth/presentation/views/login_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/account_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/address_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/currency_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/favourite_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/language_view.dart';
+import 'package:swifit_cart/features/profile/presentation/view/logout_view.dart';
 import 'package:swifit_cart/features/profile/presentation/view/notification_view.dart';
-import 'package:swifit_cart/features/profile/presentation/view/track_order_view.dart';
 
 class ProfileServiceModel {
   final String name;
@@ -47,12 +46,7 @@ class ProfileServiceModel {
       iconName: Icons.notifications,
     ),
     ProfileServiceModel(
-      navigaterPage: const TrackOrderView(),
-      name: "Track order",
-      iconName: Icons.fire_truck,
-    ),
-    ProfileServiceModel(
-      navigaterPage: const LoginView(),
+      navigaterPage: const LogOutView(),
       name: "Log out",
       iconName: Icons.logout_outlined,
     ),

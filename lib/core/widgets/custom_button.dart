@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       this.onPressed,
        this.height,
        this.width=double.infinity,
-       this.radius,
+       this.radius, this.style,
       })
       : super(key: key);
 
@@ -21,6 +21,7 @@ class CustomButton extends StatelessWidget {
   final double ?height;
   final double ?width;
   final double ?radius;
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,7 @@ class CustomButton extends StatelessWidget {
       child: Container(
         height: height ?? 66.h,
         width: width ?? double.infinity,
+
         decoration:  BoxDecoration(
           gradient: const LinearGradient(
               begin: Alignment.center,
@@ -46,7 +48,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonName,
-            style: Styles.textStyle20.copyWith(
+            style: style ?? Styles.textStyle20.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.w600,
             ),

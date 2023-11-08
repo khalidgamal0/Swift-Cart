@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swifit_cart/features/profile/presentation/view/widgets/notification_view_body.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
@@ -9,7 +10,7 @@ class NotificationView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Notifications"),
       ),
-      body: const Column(),
+      body: const NotificationViewBody(),
     );
   }
 }
