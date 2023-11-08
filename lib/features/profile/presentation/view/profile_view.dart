@@ -13,4 +13,5 @@ class  ProfileView extends StatelessWidget {
       body: const ProfileViewBody(),
     );
 
-}}
+  }
+}
