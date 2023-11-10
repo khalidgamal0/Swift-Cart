@@ -10,10 +10,10 @@ class BrandListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 56.w,
-      backgroundColor: Colors.white,
-      child: Image.asset(AssetsData.brand,scale: .4.w,),
-    );
+        return CircleAvatar(
+          radius: 56.w,
+          backgroundColor: Colors.white,
+          child: Image.asset(AssetsData.brand,scale: .4.w,),
+        );
   }
 }

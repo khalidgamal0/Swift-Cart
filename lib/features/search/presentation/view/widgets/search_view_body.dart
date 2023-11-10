@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/constant.dart';
-import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/search/presentation/view/widgets/search_container.dart';
 import 'package:swifit_cart/features/search/presentation/view/widgets/search_grid_view.dart';
-
-import '../../../../product/presentation/view/widgets/grid_view_item.dart';
+import 'package:swifit_cart/features/search/presentation/view/widgets/side_menu.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({Key? key}) : super(key: key);
+  SearchViewBody({super.key});
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
+// Create a key
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavDrawer(),
+      key: _key,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
@@ -43,13 +46,17 @@ class SearchViewBody extends StatelessWidget {
               const ResponsiveSizedBox(
                 height: 20,
               ),
-              const Row(
+               Row(
                 children: [
-                  SearchContainer(word: 'Filters'),
-                  ResponsiveSizedBox(
+                  InkWell(
+                      onTap:(){
+                        _key.currentState!.openDrawer();
+                      },
+                      child: const SearchContainer(word: 'Filters')),
+                  const ResponsiveSizedBox(
                     width: 24,
                   ),
-                  SearchContainer(word: 'ALL'),
+                  const SearchContainer(word: 'ALL'),
                 ],
               ),
               const ResponsiveSizedBox(
