@@ -25,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
       this.boarderRadius,
       this.prefix,
       this.prefixColor,
-      this.labelText})
+      this.labelText, this.suffixColor})
       : super(key: key);
 
   final TextEditingController? controller;
@@ -48,6 +48,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color focusedBorderColor;
   final Color fillColor;
   final Color? prefixColor;
+  final Color? suffixColor;
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +65,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validate,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
+
         filled: true,
         fillColor: fillColor,
         prefixIcon: prefix != null
@@ -92,6 +94,7 @@ class CustomTextFormField extends StatelessWidget {
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,
+                  color:suffixColor ,
                 ),
               )
             : null,
