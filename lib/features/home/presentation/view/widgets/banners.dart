@@ -31,7 +31,7 @@ class Banners extends StatelessWidget {
               autoPlayAnimationDuration: const Duration(seconds: 1),
               // scrollDirection: Axis.horizontal,
               autoPlayCurve: Curves.fastOutSlowIn,
-              viewportFraction: 1)),
+              viewportFraction: .8)),
     );
   }
 }
