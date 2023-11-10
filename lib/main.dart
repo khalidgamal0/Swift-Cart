@@ -5,6 +5,7 @@ import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
 
 import 'core/widgets/error_page.dart';
 import 'features/product_details/presentation/views/product_details_view.dart';
+import 'features/search/presentation/view/widgets/search_view_body.dart';
 
 
 void main() {
@@ -26,7 +27,7 @@ class SwiftCart extends StatelessWidget {
       designSize:const Size (390,844),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: const ErrorPage(),
+      child: const SearchViewBody(),
     );
   }
 }
