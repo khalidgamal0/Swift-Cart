@@ -2,24 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/text_filed_name.dart';
+import 'package:swifit_cart/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 
 class LoginTextFormFieldsSec extends StatelessWidget {
-  const LoginTextFormFieldsSec({super.key});
+  const LoginTextFormFieldsSec({super.key, this.emailController, this.passwordController, required this.cubit});
+  final TextEditingController? emailController;
+  final TextEditingController? passwordController;
+  final LoginCubit cubit;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+
+    return  Column(
      children: [
-       TextFieldName(name: "Email Address"),
+       const TextFieldName(name: "Email Address"),
        CustomTextFormField(
          hintText: "Email Address",
+         controller: emailController,
+         type: TextInputType.emailAddress,
+         validate: (value) {
+           if(value!.isEmpty){
+             return "Required Email";
+           }
+           return null;
+
+         },
+
        ),
-       ResponsiveSizedBox(
+       const ResponsiveSizedBox(
          height: 12,
        ),
-       TextFieldName(name: "Password"),
+       const TextFieldName(name: "Password"),
        CustomTextFormField(
+         suffixPressed: () {
+           cubit.changePasswordVisibility();
+         },
          hintText: "Password",
+         controller: passwordController,
+         isPassword: cubit.isPassword,
+         suffix: cubit.suffix,
+         validate: (value) {
+           if(value!.isEmpty){
+             return "Required password";
+           }
+           return null;
+         },
        ),
      ],
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/core/constant.dart';
+import 'package:swifit_cart/constant.dart';
 
 class CustomAddRemoveContainer extends StatelessWidget {
   const CustomAddRemoveContainer({super.key, this.icon});

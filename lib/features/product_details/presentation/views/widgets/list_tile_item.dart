@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
 
-import '../../../../../core/constant.dart';
+import '../../../../../constant.dart';
 
 class ListTileItem extends StatelessWidget {
   const ListTileItem({

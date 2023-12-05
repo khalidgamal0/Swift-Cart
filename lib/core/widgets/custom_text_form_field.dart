@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constant.dart';
+import '../../constant.dart';
 import '../utils/styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -89,9 +89,11 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: Styles.textStyle12.copyWith(color:  kB60Color,fontWeight: FontWeight.w400),
         suffixIcon: suffix != null
             ? IconButton(
+
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,
+                  color: kPrimaryColor,
                 ),
               )
             : null,
