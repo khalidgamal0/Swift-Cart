@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:swifit_cart/core/constant.dart';
+import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/functions/navigator_push.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';

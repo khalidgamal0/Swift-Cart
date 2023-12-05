@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constant.dart';
+import '../../constant.dart';
 import '../utils/styles.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -25,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
       this.boarderRadius,
       this.prefix,
       this.prefixColor,
-      this.labelText, this.suffixColor})
+      this.labelText})
       : super(key: key);
 
   final TextEditingController? controller;
@@ -48,7 +48,6 @@ class CustomTextFormField extends StatelessWidget {
   final Color focusedBorderColor;
   final Color fillColor;
   final Color? prefixColor;
-  final Color? suffixColor;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +64,6 @@ class CustomTextFormField extends StatelessWidget {
       validator: validate,
       cursorColor: kPrimaryColor,
       decoration: InputDecoration(
-
         filled: true,
         fillColor: fillColor,
         prefixIcon: prefix != null
@@ -91,10 +89,11 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: Styles.textStyle12.copyWith(color:  kB60Color,fontWeight: FontWeight.w400),
         suffixIcon: suffix != null
             ? IconButton(
+
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,
-                  color:suffixColor ,
+                  color: kPrimaryColor,
                 ),
               )
             : null,

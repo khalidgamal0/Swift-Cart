@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:swifit_cart/core/utils/assets.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
-import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
-import '../../../../../core/constant.dart';
+import '../../../../../constant.dart';
+import 'appbar.dart';
 import 'banners.dart';
 import 'brand_list_view.dart';
 import 'category_list_view.dart';
@@ -95,3 +94,4 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
+
