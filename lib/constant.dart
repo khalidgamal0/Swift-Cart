@@ -5,4 +5,5 @@ const kPrimaryColor= Color(0xff52285B);
 const kSecondaryColor= Color(0xffFCF4F4);
 const kB60Color= Color(0xff2A132E);
 const loginUrl= "login";
+const registerUrl= "register";
 String ? token ;

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/product_details/presentation/views/widgets/product_details_first_sec.dart';
-import '../../../../../core/constant.dart';
+import '../../../../../constant.dart';
 import '../../../../../core/utils/styles.dart';
 import 'colors_sec.dart';
 
@@ -56,7 +56,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
             ),
             if (isDown == true)
               Text(
-                text,
+                "text",
                 style: Styles.textStyle16,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,

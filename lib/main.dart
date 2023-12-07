@@ -4,15 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/bloc_observer.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/theme.dart';
-import 'package:swifit_cart/features/auth/presentation/views/login_view.dart';
 import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
 import 'package:swifit_cart/features/layout/layout_view.dart';
 
+import 'core/utils/service_locator.dart';
 import 'core/utils/shared_prefrence.dart';
 
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   Bloc.observer = AppBlocObserver();
   await SharedPreference.init();
   token = SharedPreference.getData(key: 'token');

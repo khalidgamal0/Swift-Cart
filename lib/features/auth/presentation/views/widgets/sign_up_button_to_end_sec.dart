@@ -1,4 +1,6 @@
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/functions/navigator_push.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
@@ -6,20 +8,29 @@ import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/custom_text_button.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/auth/presentation/views/login_view.dart';
-import 'package:swifit_cart/features/layout/layout_view.dart';
+
+import '../../../../../core/widgets/custom_circular_indicator.dart';
 
 class SignUpButtonToEndSec extends StatelessWidget {
-  const SignUpButtonToEndSec({super.key});
+  const SignUpButtonToEndSec({super.key, this.onPressed, required this.condition});
+  final void Function()? onPressed ;
+  final bool condition;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomButton(
-          buttonName: "Sign up",
-          onPressed: () {
-            navigatorPush(const LayoutView(), context);
-          },
+        ConditionalBuilder(
+          condition: !condition,
+          builder:(context) => CustomButton(
+            buttonName: "Sign up",
+            onPressed: onPressed
+          ),
+          fallback:  (context) => CustomCircularIndicator(
+            height: 30.h,
+            color: kPrimaryColor,
+            width: 30.w,
+          ),
         ),
         const ResponsiveSizedBox(
           height: 32,
