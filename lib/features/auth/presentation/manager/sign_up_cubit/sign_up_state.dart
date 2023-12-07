@@ -6,9 +6,9 @@ abstract class SignUpState {}
 class SignUpInitial extends SignUpState {}
 class SignUpLoading extends SignUpState {}
 class SignUpSuccess extends SignUpState {
-  final LoginModel loginModel;
+  final SignUpModel signUpModel;
 
-  SignUpSuccess(this.loginModel);
+  SignUpSuccess(this.signUpModel);
 
 }
 class SignUpFailure extends SignUpState {

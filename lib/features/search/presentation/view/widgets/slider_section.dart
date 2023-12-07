@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../core/constant.dart';
-import '../../../../../core/utils/styles.dart';
+import '../../../../../constant.dart';import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/responsive_sized_box.dart';
 
 class SliderSection extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/core/constant.dart';
+import '../../../../../constant.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/search/presentation/view/widgets/search_container.dart';
@@ -36,7 +36,6 @@ class SearchViewBody extends StatelessWidget {
                     child: CustomTextFormField(
                       hintText: 'Search',
                       suffix: Icons.search,
-                      suffixColor: kPrimaryColor.withOpacity(.5),
                       boarderRadius: 40.w,
                       fillColor: kPrimaryColor.withOpacity(.05),
                     ),

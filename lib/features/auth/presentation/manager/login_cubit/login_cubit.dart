@@ -5,14 +5,17 @@ import 'package:meta/meta.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/network/dio.dart';
 import 'package:swifit_cart/features/auth/data/models/login_model.dart';
+import 'package:swifit_cart/features/auth/data/repos/auth_repo.dart';
+import 'package:swifit_cart/features/auth/data/repos/auth_repo_implementaion.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
+  LoginCubit(this.authRepo) : super(LoginInitial());
   static  LoginCubit get(context) => BlocProvider.of<LoginCubit>(context);
 
   LoginModel? loginModel;
+  AuthRepo authRepo;
 
   IconData suffix = Icons.visibility_off_outlined;
   bool isPassword = true;
@@ -23,27 +26,44 @@ class LoginCubit extends Cubit<LoginState> {
     emit(ChangePasswordVisibility());
   }
 
-  void userLogin({
-    required String email,
-    required String password,
-  })  {
-    ApiService().post(
-      urlEndPoint: loginUrl,
-      queryParameters: {
-        "email": email,
-        "password": password,
-      },
-    ).then(
-      (value) {
-        loginModel = LoginModel.fromJson(value);
-        print(loginModel?.data.token);
-        emit(LoginSuccess(loginModel!));
-      },
-    ).catchError(
-      (error) {
-        print(error.toString());
-        emit(LoginFailure(error.toString()));
-      },
-    );
-  }
+  // void userLogin({
+  //   required String email,
+  //   required String password,
+  // })  {
+  //   ApiService().post(
+  //     urlEndPoint: loginUrl,
+  //     queryParameters: {
+  //       "email": email,
+  //       "password": password,
+  //     },
+  //   ).then(
+  //     (value) {
+  //       loginModel = LoginModel.fromJson(value);
+  //       print(loginModel?.data.token);
+  //       emit(LoginSuccess(loginModel!));
+  //     },
+  //   ).catchError(
+  //     (error) {
+  //       print(error.toString());
+  //       emit(LoginFailure(error.toString()));
+  //     },
+  //   );
+  // }
+
+   Future<void> userLogin({
+     required String email,
+     required String password,
+  }) async {
+    emit(LoginLoading());
+    var loginResponse = await authRepo.login(email: email, password: password);
+    loginResponse.fold((failure) {
+      emit(LoginFailure(failure.errorMessage));
+    }, (loginData) {
+       emit(LoginSuccess(loginData));
+    });
+   }
+
+
+
+
 }

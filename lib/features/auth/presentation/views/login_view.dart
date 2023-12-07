@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/functions/navigate.dart';
+import 'package:swifit_cart/core/utils/service_locator.dart';
 import 'package:swifit_cart/core/utils/shared_prefrence.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/toast.dart';
+import 'package:swifit_cart/features/auth/data/repos/auth_repo_implementaion.dart';
 import 'package:swifit_cart/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/login_reset_password_to_end_sec.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/login_text_form_fields_sec.dart';
@@ -21,7 +23,7 @@ class LoginView extends StatelessWidget {
     TextEditingController passController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
@@ -49,7 +51,7 @@ class LoginView extends StatelessWidget {
               );
             }
           } else if (state is LoginFailure){
-            showToast(message: "some thing is wrong please check email and password", state: ToastStates.error);
+            showToast(message: state.errorMessage, state: ToastStates.error);
           }
         },
         builder: (context, state) {

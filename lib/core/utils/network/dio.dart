@@ -68,16 +68,18 @@ class DioHelper {
 
 class ApiService {
 
-  final Dio dio = Dio();
+  final Dio _dio;
   final String _baseUrl = 'https://student.valuxapps.com/api/';
   final String lang = 'en';
+
+  ApiService(this._dio);
 
   Future<Map<String, dynamic>> get({
     required String urlEndPoint,
     String? token,
     Map<String, dynamic>? queryParameters,
   }) async {
-    var response = await dio.get(
+    var response = await _dio.get(
       '$_baseUrl$urlEndPoint',
       options: Options(
         receiveDataWhenStatusError: true,
@@ -97,7 +99,7 @@ class ApiService {
     String? token,
     Map<String, dynamic>? queryParameters,
   }) async {
-    var response =await  dio.post(
+    var response =await  _dio.post(
       '$_baseUrl$urlEndPoint',
         options: Options(
         headers: {
