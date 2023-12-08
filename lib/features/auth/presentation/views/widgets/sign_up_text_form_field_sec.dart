@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/text_filed_name.dart';
-import 'package:swifit_cart/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import '../../manager/auth_cubit.dart';
 
 class SignUpTextFormFieldsSec extends StatelessWidget {
   const SignUpTextFormFieldsSec({super.key, this.nameController, this.emailController, this.passwordController, required this.cubit, this.phoneController});
@@ -10,7 +10,7 @@ class SignUpTextFormFieldsSec extends StatelessWidget {
   final TextEditingController? emailController;
   final TextEditingController? passwordController;
   final TextEditingController? phoneController;
-  final SignUpCubit cubit;
+  final AuthCubit cubit;
 
   @override
   Widget build(BuildContext context) {

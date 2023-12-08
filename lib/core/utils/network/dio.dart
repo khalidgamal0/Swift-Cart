@@ -14,7 +14,8 @@ class DioHelper {
   }
 
   static Future<Response> postData(
-      {@required String? methodUrl,
+      {
+        required String methodUrl,
       Map<String, dynamic>? query,
       required Map<String, dynamic> data,
       String lang = 'en',
@@ -26,14 +27,14 @@ class DioHelper {
       'Authorization': token ?? '',
     };
     return dio!.post(
-      methodUrl!,
+      methodUrl,
       queryParameters: query,
       data: data,
     );
   }
 
   static Future<Response> getData({
-    @required String? methodUrl,
+    required String methodUrl,
     Map<String, dynamic>? query,
     String lang = 'en',
     String? token,
@@ -43,7 +44,7 @@ class DioHelper {
       'Content-Type': 'application/json',
       'Authorization': token ?? '',
     };
-    return await dio!.get(methodUrl!, queryParameters: query);
+    return await dio!.get(methodUrl, queryParameters: query);
   }
 
   static Future<Response> putData({

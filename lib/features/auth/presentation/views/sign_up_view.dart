@@ -9,11 +9,12 @@ import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/toast.dart';
 import 'package:swifit_cart/features/auth/data/repos/auth_repo_implementaion.dart';
-import 'package:swifit_cart/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/sign_up_button_to_end_sec.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/sign_up_or_sec.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/sign_up_text_form_field_sec.dart';
 import 'package:swifit_cart/features/layout/layout_view.dart';
+
+import '../manager/auth_cubit.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
@@ -26,8 +27,8 @@ class SignUpView extends StatelessWidget {
     TextEditingController phoneController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return BlocProvider(
-      create: (context) => SignUpCubit(getIt.get<AuthRepoImpl>()),
-      child: BlocConsumer<SignUpCubit, SignUpState>(
+      create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+      child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is SignUpSuccess) {
             if (state.signUpModel.status) {
@@ -53,7 +54,7 @@ class SignUpView extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          var cubit = SignUpCubit.get(context);
+          var cubit = AuthCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: SingleChildScrollView(

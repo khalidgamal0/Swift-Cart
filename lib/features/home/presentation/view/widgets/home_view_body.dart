@@ -6,7 +6,7 @@ import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import '../../../../../constant.dart';
-import 'appbar.dart';
+import '../../../../../core/widgets/responsive_sized_box.dart';
 import 'banners.dart';
 import 'brand_list_view.dart';
 import 'category_list_view.dart';

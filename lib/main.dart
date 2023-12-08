@@ -6,7 +6,6 @@ import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/theme.dart';
 import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
 import 'package:swifit_cart/features/layout/layout_view.dart';
-
 import 'core/utils/service_locator.dart';
 import 'core/utils/shared_prefrence.dart';
 
@@ -35,7 +34,7 @@ class SwiftCart extends StatelessWidget {
       designSize:const Size (390,844),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: token !=null ? const SignUpView(): const LayoutView(),
+      child: token ==null ? const SignUpView():const LayoutView(),
     );
   }
 }

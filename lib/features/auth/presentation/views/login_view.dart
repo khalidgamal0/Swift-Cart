@@ -9,6 +9,7 @@ import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/toast.dart';
 import 'package:swifit_cart/features/auth/data/repos/auth_repo_implementaion.dart';
+import 'package:swifit_cart/features/auth/presentation/manager/auth_cubit.dart';
 import 'package:swifit_cart/features/auth/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/login_reset_password_to_end_sec.dart';
 import 'package:swifit_cart/features/auth/presentation/views/widgets/login_text_form_fields_sec.dart';
@@ -23,8 +24,8 @@ class LoginView extends StatelessWidget {
     TextEditingController passController = TextEditingController();
     var formKey = GlobalKey<FormState>();
     return BlocProvider(
-      create: (context) => LoginCubit(getIt.get<AuthRepoImpl>()),
-      child: BlocConsumer<LoginCubit, LoginState>(
+      create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
+      child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is LoginSuccess) {
             if (state.loginModel.status) {
@@ -55,7 +56,7 @@ class LoginView extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          var cubit = LoginCubit.get(context);
+          var cubit = AuthCubit.get(context);
           return Scaffold(
             body: SafeArea(
               child: SingleChildScrollView(
