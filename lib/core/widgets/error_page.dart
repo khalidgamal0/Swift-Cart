@@ -6,8 +6,8 @@ import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import '../../constant.dart';
 
 class ErrorPage extends StatelessWidget {
-  const ErrorPage({Key? key}) : super(key: key);
-
+  const ErrorPage({Key? key,  this.text}) : super(key: key);
+  final String? text;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +18,9 @@ class ErrorPage extends StatelessWidget {
           const ResponsiveSizedBox(
             height: 40,
           ),
-          const Text(
-            '404',
-            style: TextStyle(
+           Text(
+            text??'404',
+            style: const TextStyle(
               fontSize: 32,
               fontWeight: FontWeight.w600,
               color: kPrimaryColor,

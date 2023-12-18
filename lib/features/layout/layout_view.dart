@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swifit_cart/features/profile/presentation/manger/account/account_cubit.dart';
 import 'manager/layout_cubit.dart';
 
 class LayoutView extends StatelessWidget {
@@ -11,6 +12,7 @@ class LayoutView extends StatelessWidget {
       create: (context) => LayoutCubit(),
       child: BlocBuilder<LayoutCubit, LayoutState>(
         builder: (context, state) {
+          AccountCubit.get(context).fetchAccountData();
           var cubit=LayoutCubit.get(context);
           return Scaffold(
             body:cubit.bottomScreen[cubit.currentIndex],

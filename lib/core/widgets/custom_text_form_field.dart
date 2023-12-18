@@ -25,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
       this.boarderRadius,
       this.prefix,
       this.prefixColor,
-      this.labelText})
+      this.labelText,})
       : super(key: key);
 
   final TextEditingController? controller;

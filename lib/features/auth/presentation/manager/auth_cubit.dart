@@ -49,4 +49,6 @@ class AuthCubit extends Cubit<AuthState> {
     isPassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
     emit(ChangePasswordVisibility());
   }
+
+  
 }

@@ -31,7 +31,7 @@ class SignUpView extends StatelessWidget {
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
           if (state is SignUpSuccess) {
-            if (state.signUpModel.status) {
+            if (state.signUpModel.status!) {
               SharedPreference.setData(
                 key: "token",
                 value: state.signUpModel.data!.token,

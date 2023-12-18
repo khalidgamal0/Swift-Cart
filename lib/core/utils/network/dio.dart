@@ -99,6 +99,8 @@ class ApiService {
     required String urlEndPoint,
     String? token,
     Map<String, dynamic>? queryParameters,
+    @required Map<String, dynamic>? data,
+
   }) async {
     var response =await  _dio.post(
       '$_baseUrl$urlEndPoint',
@@ -110,12 +112,53 @@ class ApiService {
         },
 
     ),
-      queryParameters: queryParameters
+      queryParameters: queryParameters,
+        data: data,
     );
-
     return response.data;
   }
 
+  Future<Map<String, dynamic>> put({
+    required String urlEndPoint,
+    String? token,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    var response = await _dio.put(
+      '$_baseUrl$urlEndPoint',
+      options: Options(
+        receiveDataWhenStatusError: true,
+        headers: {
+          "lang": lang,
+          "Content-Type": "application/json",
+          'Authorization': token ?? '',
+        },
+      ),
+      queryParameters: queryParameters,
+      data: data,
+    );
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> delete({
+    required String urlEndPoint,
+    String? token,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    var response = await _dio.delete(
+      '$_baseUrl$urlEndPoint',
+      options: Options(
+        receiveDataWhenStatusError: true,
+        headers: {
+          "lang": lang,
+          "Content-Type": "application/json",
+          'Authorization': token ?? '',
+        },
+      ),
+      queryParameters: queryParameters,
+    );
+    return response.data;
+  }
 
 
 

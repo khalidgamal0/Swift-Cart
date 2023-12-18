@@ -23,102 +23,99 @@ class LoginView extends StatelessWidget {
     TextEditingController emailController = TextEditingController();
     TextEditingController passController = TextEditingController();
     var formKey = GlobalKey<FormState>();
-    return BlocProvider(
-      create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
-      child: BlocConsumer<AuthCubit, AuthState>(
-        listener: (context, state) {
-          if (state is LoginSuccess) {
-            if (state.loginModel.status) {
-              SharedPreference.setData(
-                key: "token",
-                value: state.loginModel.data.token,
-              ).then(
-                (value) {
-                  token = state.loginModel.data.token;
-                  showToast(
-                    message: "Success Login",
-                    state: ToastStates.success,
-                  );
-                  navigateAndFinish(
-                    context,
-                    const LayoutView(),
-                  );
-                },
-              );
-            } else {
-              showToast(
-                message: state.loginModel.message,
-                state: ToastStates.error,
-              );
-            }
-          } else if (state is LoginFailure){
-            showToast(message: state.errorMessage, state: ToastStates.error);
+    return BlocConsumer<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is LoginSuccess) {
+          if (state.loginModel.status!) {
+            SharedPreference.setData(
+              key: "token",
+              value: state.loginModel.data!.token,
+            ).then(
+              (value) {
+                token = state.loginModel.data!.token;
+                showToast(
+                  message: "Success Login",
+                  state: ToastStates.success,
+                );
+                navigateAndFinish(
+                  context,
+                  const LayoutView(),
+                );
+              },
+            );
+          } else {
+            showToast(
+              message: state.loginModel.message!,
+              state: ToastStates.error,
+            );
           }
-        },
-        builder: (context, state) {
-          var cubit = AuthCubit.get(context);
-          return Scaffold(
-            body: SafeArea(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                padding: EdgeInsets.only(
-                  top: 17.h,
-                  bottom: 53.h,
-                  right: 23.w,
-                  left: 23.w,
-                ),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Icon(
-                            Icons.arrow_back_outlined,
-                            size: 24.w,
-                            color: kPrimaryColor,
-                          ),
+        } else if (state is LoginFailure){
+          showToast(message: state.errorMessage, state: ToastStates.error);
+        }
+      },
+      builder: (context, state) {
+        var cubit = AuthCubit.get(context);
+        return Scaffold(
+          body: SafeArea(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.only(
+                top: 17.h,
+                bottom: 53.h,
+                right: 23.w,
+                left: 23.w,
+              ),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back_outlined,
+                          size: 24.w,
+                          color: kPrimaryColor,
                         ),
                       ),
-                      const ResponsiveSizedBox(
-                        height: 40,
-                      ),
-                      Text(
-                        "Welcome Back !",
-                        style: Styles.textStyle25,
-                      ),
-                      const ResponsiveSizedBox(
-                        height: 40,
-                      ),
-                       LoginTextFormFieldsSec(
-                        emailController: emailController,
-                        passwordController: passController,
-                         cubit: cubit,
-                      ),
-                      const ResponsiveSizedBox(
-                        height: 15,
-                      ),
-                       LoginResetPasswordToEndSec(
-                         condition: state is LoginLoading,
-                       onPressed:  () {
-                         if(formKey.currentState!.validate()){
-                           cubit.userLogin(email: emailController.text, password: passController.text);
-                         }
-                       },
-                      ),
-                    ],
-                  ),
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 40,
+                    ),
+                    Text(
+                      "Welcome Back !",
+                      style: Styles.textStyle25,
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 40,
+                    ),
+                     LoginTextFormFieldsSec(
+                      emailController: emailController,
+                      passwordController: passController,
+                       cubit: cubit,
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 15,
+                    ),
+                     LoginResetPasswordToEndSec(
+                       condition: state is LoginLoading,
+                     onPressed:  () {
+                       if(formKey.currentState!.validate()){
+                         cubit.userLogin(email: emailController.text, password: passController.text);
+                       }
+                     },
+                    ),
+                  ],
                 ),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

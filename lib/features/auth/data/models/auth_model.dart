@@ -1,7 +1,7 @@
 class AuthModel {
-  bool status;
-  String message;
-  Data data;
+  bool? status;
+  String? message;
+  Data? data;
 
   AuthModel({
     required this.status,
@@ -12,20 +12,20 @@ class AuthModel {
   factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
     status: json["status"],
     message: json["message"],
-    data: Data.fromJson(json["data"]),
+    data:json['data'] !=null? Data.fromJson(json["data"]):null,
   );
 
 }
 
 class Data {
-  int id;
-  String name;
-  String email;
-  String phone;
-  String image;
-  int points;
-  int credit;
-  String token;
+  int? id;
+  String? name;
+  String? email;
+  String? phone;
+  String? image;
+  int? points;
+  int? credit;
+  String? token;
 
   Data({
     required this.id,
