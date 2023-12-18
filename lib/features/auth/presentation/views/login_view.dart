@@ -32,7 +32,7 @@ class LoginView extends StatelessWidget {
                 key: "token",
                 value: state.loginModel.data.token,
               ).then(
-                (value) {
+                    (value) {
                   token = state.loginModel.data.token;
                   showToast(
                     message: "Success Login",
@@ -50,12 +50,13 @@ class LoginView extends StatelessWidget {
                 state: ToastStates.error,
               );
             }
-          } else if (state is LoginFailure){
+          } else if (state is LoginFailure) {
             showToast(message: state.errorMessage, state: ToastStates.error);
           }
         },
         builder: (context, state) {
           var cubit = LoginCubit.get(context);
+
           return Scaffold(
             body: SafeArea(
               child: SingleChildScrollView(
@@ -94,21 +95,22 @@ class LoginView extends StatelessWidget {
                       const ResponsiveSizedBox(
                         height: 40,
                       ),
-                       LoginTextFormFieldsSec(
+                      LoginTextFormFieldsSec(
                         emailController: emailController,
                         passwordController: passController,
-                         cubit: cubit,
+                        cubit: cubit,
                       ),
                       const ResponsiveSizedBox(
                         height: 15,
                       ),
-                       LoginResetPasswordToEndSec(
-                         condition: state is LoginLoading,
-                       onPressed:  () {
-                         if(formKey.currentState!.validate()){
-                           cubit.userLogin(email: emailController.text, password: passController.text);
-                         }
-                       },
+                      LoginResetPasswordToEndSec(
+                        condition: state is LoginLoading,
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            cubit.userLogin(email: emailController.text,
+                                password: passController.text);
+                          }
+                        },
                       ),
                     ],
                   ),

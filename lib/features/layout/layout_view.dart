@@ -7,13 +7,18 @@ class LayoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LayoutCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LayoutCubit(),
+        ),
+
+      ],
       child: BlocBuilder<LayoutCubit, LayoutState>(
         builder: (context, state) {
-          var cubit=LayoutCubit.get(context);
+          var cubit = LayoutCubit.get(context);
           return Scaffold(
-            body:cubit.bottomScreen[cubit.currentIndex],
+            body: cubit.bottomScreen[cubit.currentIndex],
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: cubit.currentIndex,
               onTap: (index) {
@@ -21,17 +26,28 @@ class LayoutView extends StatelessWidget {
               },
               items: const [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined,), label: ''),
+                    icon: Icon(
+                      Icons.home_outlined,
+                    ),
+                    label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.search_outlined,), label: ''),
+                    icon: Icon(
+                      Icons.category_outlined,
+                    ),
+                    label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart_outlined,), label: ''),
+                    icon: Icon(
+                      Icons.shopping_cart_outlined,
+                    ),
+                    label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outlined,), label: ''),
+                    icon: Icon(
+                      Icons.person_outlined,
+                    ),
+                    label: ''),
               ],
               //
             ),
-
           );
         },
       ),
