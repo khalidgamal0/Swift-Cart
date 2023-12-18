@@ -25,6 +25,7 @@ class SignUpTextFormFieldsSec extends StatelessWidget {
             if(value!.isEmpty){
               return "Required name";
             }
+            return null;
           },
         ),
         const ResponsiveSizedBox(
@@ -39,6 +40,7 @@ class SignUpTextFormFieldsSec extends StatelessWidget {
             if(value!.isEmpty){
               return "Required phone";
             }
+            return null;
           },
 
         ),
@@ -54,6 +56,7 @@ class SignUpTextFormFieldsSec extends StatelessWidget {
             if(value!.isEmpty){
               return "Required email";
             }
+            return null;
           },
         ),
         const ResponsiveSizedBox(
@@ -71,6 +74,7 @@ class SignUpTextFormFieldsSec extends StatelessWidget {
             if(value!.isEmpty){
               return "Required password";
             }
+            return null;
           },
           suffix: cubit.suffix,
           isPassword: cubit.isPassword,

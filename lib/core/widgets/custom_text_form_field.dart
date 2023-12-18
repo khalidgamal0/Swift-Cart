@@ -89,7 +89,6 @@ class CustomTextFormField extends StatelessWidget {
         hintStyle: Styles.textStyle12.copyWith(color:  kB60Color,fontWeight: FontWeight.w400),
         suffixIcon: suffix != null
             ? IconButton(
-
                 onPressed: suffixPressed,
                 icon: Icon(
                   suffix,

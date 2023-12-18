@@ -22,7 +22,7 @@ Color choseToastColor(ToastStates state) {
     color = Colors.green;
   } else if (state == ToastStates.error) {
     color = Colors.red;
-  } else {
+  } else{
     color = Colors.amber;
   }
   return color;

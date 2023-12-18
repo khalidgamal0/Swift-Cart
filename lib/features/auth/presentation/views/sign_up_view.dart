@@ -90,7 +90,6 @@ class SignUpView extends StatelessWidget {
                       SignUpButtonToEndSec(
                         condition: state is SignUpLoading,
                         onPressed: () async {
-                          print(emailController.text+passController.text+phoneController.text+nameController.text);
                           if (formKey.currentState!.validate()) {
                             await cubit.signUp(
                               email: emailController.text,
