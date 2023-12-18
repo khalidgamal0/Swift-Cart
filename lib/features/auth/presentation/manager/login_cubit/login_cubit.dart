@@ -2,11 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:swifit_cart/constant.dart';
-import 'package:swifit_cart/core/utils/network/dio.dart';
+
 import 'package:swifit_cart/features/auth/data/models/login_model.dart';
 import 'package:swifit_cart/features/auth/data/repos/auth_repo.dart';
-import 'package:swifit_cart/features/auth/data/repos/auth_repo_implementaion.dart';
 
 part 'login_state.dart';
 

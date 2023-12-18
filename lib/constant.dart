@@ -6,4 +6,6 @@ const kSecondaryColor= Color(0xffFCF4F4);
 const kB60Color= Color(0xff2A132E);
 const loginUrl= "login";
 const registerUrl= "register";
+const homeUrl= "home";
+const categoriesUrl= "categories";
 String ? token ;
