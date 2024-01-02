@@ -28,7 +28,7 @@ class AddressListViewItem extends StatelessWidget {
               ), context);
             },
             child: Container(
-              height: 127.h,
+              height: 150.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),

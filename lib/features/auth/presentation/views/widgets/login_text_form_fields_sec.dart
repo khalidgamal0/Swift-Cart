@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/core/widgets/text_filed_name.dart';
-import 'package:swifit_cart/features/auth/presentation/manager/login_cubit/login_cubit.dart';
-
 import '../../manager/auth_cubit.dart';
 
 class LoginTextFormFieldsSec extends StatelessWidget {

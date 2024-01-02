@@ -60,7 +60,10 @@ class UpdateAddressScreenBody extends StatelessWidget {
                       children: [
                          CustomButton(
                           onPressed: (){
-                            cubit.updateAddress(id: addressDatum.id.toString());
+
+                            cubit.updateAddress(
+                                context: context,
+                                id: addressDatum.id.toString());
                           },
                           width: 150,
                           buttonName: 'Update ',
