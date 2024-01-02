@@ -6,6 +6,9 @@ import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
 
+import '../../../../../core/utils/shared_prefrence.dart';
+import '../../manger/account/account_cubit.dart';
+
 class LogOutViewButtonsSec extends StatelessWidget {
   const LogOutViewButtonsSec({super.key});
 
@@ -15,7 +18,10 @@ class LogOutViewButtonsSec extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            navigatorPush(const SignUpView(), context);
+            SharedPreference.removeData(key: 'token').then((value)async =>{
+             await AccountCubit.get(context).logOutAccount(),
+                navigatorPush(const SignUpView(), context)
+            });
           },
           child: Container(
             width: 130.w,

@@ -1,31 +1,31 @@
-class LoginModel {
-  bool status;
-  String message;
-  Data data;
+class AuthModel {
+  bool? status;
+  String? message;
+  Data? data;
 
-  LoginModel({
+  AuthModel({
     required this.status,
     required this.message,
     required this.data,
   });
 
-  factory LoginModel.fromJson(Map<String, dynamic> json) => LoginModel(
+  factory AuthModel.fromJson(Map<String, dynamic> json) => AuthModel(
     status: json["status"],
     message: json["message"],
-    data: Data.fromJson(json["data"]),
+    data:json['data'] !=null? Data.fromJson(json["data"]):null,
   );
 
 }
 
 class Data {
-  int id;
-  String name;
-  String email;
-  String phone;
-  String image;
-  int points;
-  int credit;
-  String token;
+  int? id;
+  String? name;
+  String? email;
+  String? phone;
+  String? image;
+  int? points;
+  int? credit;
+  String? token;
 
   Data({
     required this.id,

@@ -1,0 +1,1 @@
+const addressEndPoint='addresses';

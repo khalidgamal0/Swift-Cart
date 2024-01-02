@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/errors/failures.dart';
 import 'package:swifit_cart/core/utils/network/dio.dart';
-import 'package:swifit_cart/features/auth/data/models/login_model.dart';
+import 'package:swifit_cart/features/auth/data/models/auth_model.dart';
 import 'package:swifit_cart/features/auth/data/models/sign_up_model.dart';
 import 'package:swifit_cart/features/auth/data/repos/auth_repo.dart';
 
@@ -11,7 +11,7 @@ class AuthRepoImpl implements AuthRepo {
   ApiService apiService ;
   AuthRepoImpl(this.apiService);
   @override
-  Future<Either<Failure, LoginModel>> login({
+  Future<Either<Failure, AuthModel>> login({
     required String email,
     required String password,
   }) async {
@@ -23,7 +23,7 @@ class AuthRepoImpl implements AuthRepo {
           "password": password,
         },
       );
-      LoginModel loginModel = LoginModel.fromJson(data);
+      AuthModel loginModel = AuthModel.fromJson(data);
       return right(loginModel);
     } catch (e) {
       if (e is DioException) {
@@ -37,7 +37,7 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, SignUpModel>> signUp({
+  Future<Either<Failure, AuthModel>> signUp({
     required String? email,
     required String password,
     required String phone,
@@ -50,8 +50,8 @@ class AuthRepoImpl implements AuthRepo {
         'password': password,
         'phone': phone,
       });
-      SignUpModel signUpModel = SignUpModel.fromJson(data);
-      return right(signUpModel);
+      AuthModel authModel = AuthModel.fromJson(data);
+      return right(authModel);
     }catch(e){
       if(e is DioException){
       return left(ServerFailure.fromDioException(e));

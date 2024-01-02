@@ -7,12 +7,12 @@ import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 class CustomRowServiceContainer extends StatelessWidget {
   const CustomRowServiceContainer({
     super.key,
- this.onPressed,
+    required this.onPressed,
     required this.name,
     required this.iconName,
   });
 
-  final void Function()? onPressed;
+  final void Function() onPressed;
   final String name;
   final IconData iconName;
 
