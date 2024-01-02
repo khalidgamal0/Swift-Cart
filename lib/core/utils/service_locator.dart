@@ -1,7 +1,7 @@
-
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:swifit_cart/core/utils/network/dio.dart';
+import 'package:swifit_cart/features/search/data/repo/search_repo_impl.dart';
 
 import '../../features/adress/data/repo/address_repo_fimpl.dart';
 import '../../features/auth/data/repos/auth_repo_implementaion.dart';
@@ -35,6 +35,12 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<AddressRepoImpl>(
     AddressRepoImpl(
+      getIt.get<ApiService>(),
+    ),
+  );
+
+  getIt.registerSingleton<SearchRepoImpl>(
+    SearchRepoImpl(
       getIt.get<ApiService>(),
     ),
   );

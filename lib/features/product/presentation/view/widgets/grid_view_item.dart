@@ -4,11 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../../search/data/model.dart';
 
 class ProductGridViewItem extends StatelessWidget {
   const ProductGridViewItem({
-    super.key,
+    super.key,  this.datumSearch,
   });
+
+  final DatumSearch? datumSearch;
 
   @override
   Widget build(BuildContext context) {
