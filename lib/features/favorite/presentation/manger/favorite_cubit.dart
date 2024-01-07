@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/features/favorite/data/repo/favorite_repo_impl.dart';
 import '../../../../core/utils/network/dio.dart';
 import '../../data/favorite_model.dart';
@@ -11,7 +12,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
 
 
   final FavoriteRepoImpl favoriteRepoImpl;
-  FavoriteModel? favoriteModel;
+  FavoritesModel? favoriteModel;
 
   Future<void> getFavorite() async{
     emit(FavoriteLoading());
@@ -27,6 +28,7 @@ class FavoriteCubit extends Cubit<FavoriteState> {
   changeFavorite({required int id})async {
       await ApiService(Dio()).post(
         urlEndPoint:"favorites",
+        token: token,
         data: {"id":id},).then((value){
         getFavorite();
         emit(ChangeFavoriteSuccess());
@@ -34,7 +36,6 @@ class FavoriteCubit extends Cubit<FavoriteState> {
         print(e.toString());
         emit(ChangeFavoriteError());
       });
-
   }
 
 }

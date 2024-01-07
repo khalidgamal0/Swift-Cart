@@ -29,7 +29,7 @@ final Product favoriteProduct;
       ),
       child: Row(
         children: [
-          Image.asset(
+          Image.network(
             favoriteProduct.image!,
             width: 96.w,
             height: 104.h,

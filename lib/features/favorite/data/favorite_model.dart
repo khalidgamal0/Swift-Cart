@@ -1,78 +1,101 @@
-class FavoriteModel {
-  final bool? status;
-  final dynamic message;
-  final Data? data;
-  FavoriteModel({
-    this.status,
-    this.message,
-    this.data,
-  });
-  factory FavoriteModel.fromJson(Map<String, dynamic> json) => FavoriteModel(
-    status: json["status"],
-    message: json["message"],
-    data: json["data"] == null ? null : Data.fromJson(json["data"]),
-  );
+class FavoritesModel {
+  bool? status;
+  Data? data;
 
+  FavoritesModel({this.status, this.data});
+
+  FavoritesModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+  }
 }
 
 class Data {
-  final List<Datum>? data;
-  final int? total;
+  int? currentPage;
+  List<FavoritesData>? data;
+  String? firstPageUrl;
+  int? from;
+  int? lastPage;
+  String? lastPageUrl;
+  Null? nextPageUrl;
+  String? path;
+  int? perPage;
+  Null? prevPageUrl;
+  int? to;
+  int? total;
 
-  Data({
-    this.data,
-    this.total,
-  });
+  Data(
+      {this.currentPage,
+        this.data,
+        this.firstPageUrl,
+        this.from,
+        this.lastPage,
+        this.lastPageUrl,
+        this.nextPageUrl,
+        this.path,
+        this.perPage,
+        this.prevPageUrl,
+        this.to,
+        this.total});
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-    data: json["data"] == null ? [] : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
-    total: json["total"],
-  );
-
+  Data.fromJson(Map<String, dynamic> json) {
+    currentPage = json['current_page'];
+    if (json['data'] != null) {
+      data = <FavoritesData>[];
+      json['data'].forEach((v) {
+        data!.add(FavoritesData.fromJson(v));
+      });
+    }
+    firstPageUrl = json['first_page_url'];
+    from = json['from'];
+    lastPage = json['last_page'];
+    lastPageUrl = json['last_page_url'];
+    nextPageUrl = json['next_page_url'];
+    path = json['path'];
+    perPage = json['per_page'];
+    prevPageUrl = json['prev_page_url'];
+    to = json['to'];
+    total = json['total'];
+  }
 }
 
-class Datum {
-  final int? id;
-  final Product? product;
+class FavoritesData {
+  int? id;
+  Product? product;
 
-  Datum({
-    this.id,
-    this.product,
-  });
-
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-    id: json["id"],
-    product: json["product"] == null ? null : Product.fromJson(json["product"]),
-  );
-
+  FavoritesData({this.id, this.product});
+  FavoritesData.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    product =
+    json['product'] != null ? Product.fromJson(json['product']) : null;
+  }
 }
 
 class Product {
-  final int? id;
-  final int? price;
-  final int? oldPrice;
-  final int? discount;
-  final String? image;
-  final String? name;
-  final String? description;
+  int? id;
+  dynamic? price;
+  dynamic? oldPrice;
+  int? discount;
+  String? image;
+  String? name;
+  String? description;
 
-  Product({
-    this.id,
-    this.price,
-    this.oldPrice,
-    this.discount,
-    this.image,
-    this.name,
-    this.description,
-  });
+  Product(
+      {this.id,
+        this.price,
+        this.oldPrice,
+        this.discount,
+        this.image,
+        this.name,
+        this.description});
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
-    id: json["id"],
-    price: json["price"],
-    oldPrice: json["old_price"],
-    discount: json["discount"],
-    image: json["image"],
-    name: json["name"],
-    description: json["description"],
-  );
+  Product.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    price = json['price'];
+    oldPrice = json['old_price'];
+    discount = json['discount'];
+    image = json['image'];
+    name = json['name'];
+    description = json['description'];
+  }
 }
