@@ -14,7 +14,8 @@ class ProductDetailsViewBody extends StatefulWidget {
       required this.name,
       required this.description,
       required this.price,
-      required this.oldPrice, required this.discount})
+      required this.oldPrice,
+      required this.discount, required this.isFavorite, required this.isCart, required this.id})
       : super(key: key);
   final List<String> images;
   final String name;
@@ -22,7 +23,9 @@ class ProductDetailsViewBody extends StatefulWidget {
   final String price;
   final String oldPrice;
   final int discount;
-
+  final bool isFavorite;
+  final bool isCart;
+  final int id;
   @override
   State<ProductDetailsViewBody> createState() => _ProductDetailsViewBodyState();
 }
@@ -34,8 +37,8 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 15.h),
+        physics: const BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 15.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,6 +48,9 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
               price: widget.price,
               name: widget.name,
               oldPrice: widget.oldPrice,
+              isFavorite: widget.isFavorite,
+              id: widget.id,
+              isCart: widget.isCart,
             ),
             const ColorsSec(),
             const ResponsiveSizedBox(
@@ -78,9 +84,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
             if (isDown == true)
               Text(
                 widget.description,
-                style: Styles.textStyle16.copyWith(
-                  color: Colors.grey[800]
-                ),
+                style: Styles.textStyle16.copyWith(color: Colors.grey[800]),
                 textAlign: TextAlign.start,
               ),
             const ResponsiveSizedBox(

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/errors/failures.dart';
-import 'package:swifit_cart/features/search/data/model.dart';
+import 'package:swifit_cart/features/search/data/searchModel.dart';
 import 'package:swifit_cart/features/search/data/repo/search_repo.dart';
 import '../../../../core/utils/network/dio.dart';
 

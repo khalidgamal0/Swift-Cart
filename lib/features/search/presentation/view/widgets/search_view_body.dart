@@ -11,8 +11,6 @@ import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/search/presentation/view/widgets/search_container.dart';
 import 'package:swifit_cart/features/search/presentation/view/widgets/side_menu.dart';
-import '../../../../../core/utils/assets.dart';
-import '../../../../../core/utils/styles.dart';
 import '../../../../product/presentation/view/widgets/grid_view_item.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -45,6 +43,7 @@ class SearchViewBody extends StatelessWidget {
                       Expanded(
                         child: CustomTextFormField(
                           controller: cubit.searchController,
+                          type: TextInputType.name,
                           onChange: (value) {
                             cubit.fetchSearch(text: value);
                           },
@@ -76,23 +75,26 @@ class SearchViewBody extends StatelessWidget {
                     height: 16,
                   ),
                   if (state is SearchSuccess &&
-                      cubit.searchModel?.data?.total != 0&&cubit.searchController.text!='')
+                      cubit.searchModel?.data?.total != 0 &&
+                      cubit.searchController.text != '')
                     Expanded(
                       child: GridView.count(
                         physics: const BouncingScrollPhysics(),
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 24.h,
-                        crossAxisSpacing: 24.w,
-                        childAspectRatio: 159.w / 257.h,
+                        crossAxisCount:2,
+                        mainAxisSpacing:24.h,
+                        crossAxisSpacing:24.w,
+                        childAspectRatio:159.w / 257.h,
                         children: List.generate(
-                            cubit.searchModel?.data?.total ?? 2,
+                            cubit.searchModel!.data!.total!,
                             (index) => ProductGridViewItem(
+                              isSearch: true,
                                 datumSearch:
-                                    cubit.searchModel?.data?.data?[index])),
+                                    cubit.searchModel!.data!.data![index])),
                       ),
                     ),
                   if (cubit.searchModel?.data?.total == 0 ||
-                      cubit.searchModel?.data?.total == null||cubit.searchController.text=='')
+                      cubit.searchModel?.data?.total == null ||
+                      cubit.searchController.text == '')
                     const SuccessSearchZeroResult(),
                   if (state is SearchLoading)
                     Expanded(

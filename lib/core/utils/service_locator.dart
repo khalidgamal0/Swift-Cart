@@ -5,6 +5,7 @@ import 'package:swifit_cart/features/search/data/repo/search_repo_impl.dart';
 
 import '../../features/adress/data/repo/address_repo_fimpl.dart';
 import '../../features/auth/data/repos/auth_repo_implementaion.dart';
+import '../../features/favorite/data/repo/favorite_repo_impl.dart';
 import '../../features/home/data/repos/home_repo_implementation.dart';
 import '../../features/profile/data/repo/profile_repo_impl.dart';
 
@@ -41,6 +42,12 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<SearchRepoImpl>(
     SearchRepoImpl(
+      getIt.get<ApiService>(),
+    ),
+  );
+
+  getIt.registerSingleton<FavoriteRepoImpl>(
+    FavoriteRepoImpl(
       getIt.get<ApiService>(),
     ),
   );

@@ -42,9 +42,13 @@ class HomeViewBody extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child:  CustomTextFormField(
+                    cursorColor: Colors.transparent,
+                    focusedBorderColor: Colors.transparent,
+                    enabledBorderColor: Colors.transparent,
                     onTap: (){
                       navigatorPush(const SearchView(), context);
                     },
+
                     hintText: 'Search',
                     suffix: Icons.search_rounded,
                     boarderRadius: 40,

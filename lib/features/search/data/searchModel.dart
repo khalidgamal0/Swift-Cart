@@ -38,8 +38,8 @@ class DatumSearch {
   final String? name;
   final String? description;
   final List<String>? images;
-  final bool? inFavorites;
-  final bool? inCart;
+  final bool inFavorites;
+  final bool inCart;
 
   DatumSearch({
     this.id,
@@ -48,8 +48,8 @@ class DatumSearch {
     this.name,
     this.description,
     this.images,
-    this.inFavorites,
-    this.inCart,
+    required this.inFavorites,
+    required this.inCart,
   });
 
   factory DatumSearch.fromJson(Map<String, dynamic> json) => DatumSearch(
