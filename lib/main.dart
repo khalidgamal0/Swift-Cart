@@ -7,6 +7,7 @@ import 'package:swifit_cart/constant.dart';
 import 'package:swifit_cart/core/utils/network/dio.dart';
 import 'package:swifit_cart/core/utils/theme.dart';
 import 'package:swifit_cart/features/auth/presentation/views/sign_up_view.dart';
+import 'package:swifit_cart/features/favorite/data/repo/favorite_repo_impl.dart';
 import 'package:swifit_cart/features/home/data/repos/home_repo_implementation.dart';
 import 'package:swifit_cart/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:swifit_cart/features/layout/layout_view.dart';
@@ -17,6 +18,7 @@ import 'features/adress/data/repo/address_repo_fimpl.dart';
 import 'features/adress/presentation/manger/address_cubit.dart';
 import 'features/auth/data/repos/auth_repo_implementaion.dart';
 import 'features/auth/presentation/manager/auth_cubit.dart';
+import 'features/favorite/presentation/manger/favorite_cubit.dart';
 import 'features/profile/data/repo/profile_repo_impl.dart';
 import 'features/profile/presentation/manger/account/account_cubit.dart';
 
@@ -44,14 +46,18 @@ class SwiftCart extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) =>
-              AddressCubit(getIt.get<AddressRepoImpl>())..fetchAddress(),
+                  AddressCubit(getIt.get<AddressRepoImpl>())..fetchAddress(),
             ),
             BlocProvider(
-              create: (context) =>
-              HomeCubit(getIt.get<HomeRepoImpl>())..fetchHomeData()..fetchCategoriesData(),
+              create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())
+                ..fetchHomeData()
+                ..fetchCategoriesData(),
             ),
             BlocProvider(
               create: (context) => AccountCubit(getIt.get<ProfileRepoImpl>()),
+            ),
+            BlocProvider(
+              create: (context) => FavoriteCubit(getIt.get<FavoriteRepoImpl>())..getFavorite(),
             )
           ],
           child: MaterialApp(

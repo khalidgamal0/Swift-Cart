@@ -2,11 +2,13 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:swifit_cart/core/utils/functions/navigator_push.dart';
 import 'package:swifit_cart/core/utils/styles.dart';
 import 'package:swifit_cart/core/widgets/custom_text_form_field.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 import 'package:swifit_cart/features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'package:swifit_cart/features/home/presentation/view/home_view_loading.dart';
+import 'package:swifit_cart/features/search/presentation/view/search_view.dart';
 import 'banners_sec.dart';
 import 'category_list_view.dart';
 import 'grid_view_item.dart';
@@ -39,7 +41,14 @@ class HomeViewBody extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24.w),
-                  child: const CustomTextFormField(
+                  child:  CustomTextFormField(
+                    cursorColor: Colors.transparent,
+                    focusedBorderColor: Colors.transparent,
+                    enabledBorderColor: Colors.transparent,
+                    onTap: (){
+                      navigatorPush(const SearchView(), context);
+                    },
+
                     hintText: 'Search',
                     suffix: Icons.search_rounded,
                     boarderRadius: 40,

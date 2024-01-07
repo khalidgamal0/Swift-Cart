@@ -25,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
       this.boarderRadius,
       this.prefix,
       this.prefixColor,
-      this.labelText,})
+      this.labelText, this.cursorColor,})
       : super(key: key);
 
   final TextEditingController? controller;
@@ -48,6 +48,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color focusedBorderColor;
   final Color fillColor;
   final Color? prefixColor;
+  final Color? cursorColor;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,7 @@ class CustomTextFormField extends StatelessWidget {
       onChanged: onChange,
       onTap: onTap,
       validator: validate,
-      cursorColor: kPrimaryColor,
+      cursorColor:cursorColor??kPrimaryColor,
       decoration: InputDecoration(
         filled: true,
         fillColor: fillColor,

@@ -11,7 +11,6 @@ class ProductsGridViewItem extends StatelessWidget {
     super.key, required this.index, required this.cubit,
   });
 
-
   final int index;
   final HomeCubit cubit;
 
@@ -21,15 +20,18 @@ class ProductsGridViewItem extends StatelessWidget {
       onTap: () {
         navigatorPush(
             ProductDetailsView(
-              discount: cubit.categoryProductsModel!.data.data[index].discount,
+              discount: 15,
               name: cubit.categoryProductsModel!.data.data[index].name,
               description: cubit.categoryProductsModel!.data.data[index]
-                  .description,
+                  .description!,
               images: cubit.categoryProductsModel!.data.data[index].images,
               oldPrice: cubit.categoryProductsModel!.data.data[index].oldPrice
                   .toString(),
               price: cubit.categoryProductsModel!.data.data[index].price
                   .toString(),
+              isFavorite:  cubit.categoryProductsModel!.data.data[index].inFavorites,
+              isCart: cubit.categoryProductsModel!.data.data[index].inCart ,
+              id:  cubit.categoryProductsModel!.data.data[index].id,
             ), context);
       },
       child: Container(
@@ -64,7 +66,7 @@ class ProductsGridViewItem extends StatelessWidget {
 
               Center(
                 child: CustomCashedNetworkImage(
-                  imageUrl: cubit.categoryProductsModel!.data.data[index].image,
+                  imageUrl: cubit.categoryProductsModel!.data.data[index].image!,
                   width: double.infinity,
                   height: 144.h,
                 ),

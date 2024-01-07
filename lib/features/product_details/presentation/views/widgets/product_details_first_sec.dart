@@ -15,6 +15,9 @@ class ProductDetailsFirstSec extends StatelessWidget {
     required this.price,
     required this.oldPrice,
     required this.discount,
+    required this.isFavorite,
+    required this.isCart,
+    required this.id,
   });
 
   final List<String> images;
@@ -22,6 +25,9 @@ class ProductDetailsFirstSec extends StatelessWidget {
   final String price;
   final String oldPrice;
   final int discount;
+  final bool isFavorite;
+  final bool isCart;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +58,7 @@ class ProductDetailsFirstSec extends StatelessWidget {
 
               },
               child: Icon(
-                Icons.bookmark_outline,
+                isFavorite?Icons.favorite:Icons.favorite_outline,
                 size: 28.w,
               ),
             )

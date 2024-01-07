@@ -25,7 +25,7 @@ class ColorsSec extends StatelessWidget {
         width: 16,
       ),
       ColorContainerItem(
-        color: Color(0xffC9A19C),text: 'Rose GOLD',width: 104,
+        color: Color(0xffC9A19C),text: 'Rose ',width: 80,
 
       ),
 

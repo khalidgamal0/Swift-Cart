@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swifit_cart/features/favorite/presentation/views/widgets/favorite_view_body.dart';
 
 class FavouriteView extends StatelessWidget {
   const FavouriteView({super.key});
@@ -9,7 +10,7 @@ class FavouriteView extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Favorites"),
       ),
-      body: const Column(),
+      body: const FavouriteViewBody(),
     );
   }
 }

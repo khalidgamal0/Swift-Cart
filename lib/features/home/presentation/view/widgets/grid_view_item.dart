@@ -19,6 +19,9 @@ class HomeGridViewItem extends StatelessWidget {
       onTap: () {
         navigatorPush(
             ProductDetailsView(
+              id:product.id ,
+              isCart:product.inCart ,
+              isFavorite: product.inFavorites,
               discount: product.discount,
           name: product.name,
               description: product.description,

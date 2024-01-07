@@ -8,4 +8,5 @@ const loginUrl= "login";
 const registerUrl= "register";
 const homeUrl= "home";
 const categoriesUrl= "categories";
+const searchUrl= "products/search";
 String ? token ;

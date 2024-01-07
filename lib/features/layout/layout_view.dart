@@ -21,15 +21,15 @@ class LayoutView extends StatelessWidget {
               onTap: (index) {
                 cubit.changeBottomScreen(index);
               },
-              items: const [
+              items:  [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined,), label: ''),
+                    icon: Icon( cubit.currentIndex==0?Icons.home:Icons.home_outlined,), label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.search_outlined,), label: ''),
+                    icon: Icon( cubit.currentIndex==1?Icons.category:Icons.category_outlined,), label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart_outlined,), label: ''),
+                    icon: Icon( cubit.currentIndex==2?Icons.shopping_cart:Icons.shopping_cart_outlined,), label: ''),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.person_outlined,), label: ''),
+                    icon: Icon( cubit.currentIndex==3?Icons.person:Icons.person_outlined,), label: ''),
               ],
               //
             ),

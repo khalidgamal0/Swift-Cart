@@ -23,7 +23,7 @@ class HomeGridViewItemLoading extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 12.h,
+                height: 10.h,
               ),
               Container(
                 color: Colors.white, // Set a background color to avoid shimmer artifacts
@@ -31,7 +31,7 @@ class HomeGridViewItemLoading extends StatelessWidget {
                 height: 10.h,
               ),
               SizedBox(
-                height: 18.h,
+                height: 16.h,
               ),
               Center(
                 child: Container(

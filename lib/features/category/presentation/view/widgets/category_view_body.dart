@@ -16,22 +16,15 @@ class CategoryViewBody extends StatelessWidget {
       builder: (context, state) {
         if (state is CategoriesLoading) {
           return const CategoryViewLoading();
-        } else if (state is CategoriesFailure) {
+        }
+        else if (state is CategoriesFailure) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         }else{
           return SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                Padding(
-                  padding:
-                  EdgeInsets.symmetric(horizontal: 24.0.w, vertical: 18.h),
-                  child: const CustomTextFormField(
-                    hintText: 'Search',
-                    suffix: Icons.search_rounded,
-                    boarderRadius: 40,
-                  ),
-                ),
+                SizedBox(height: 50.h,),
                 ListView.separated(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
