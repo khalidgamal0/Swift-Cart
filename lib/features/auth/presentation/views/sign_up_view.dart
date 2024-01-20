@@ -16,61 +16,58 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return BlocProvider(
-      create: (context) => AuthCubit(getIt.get<AuthRepoImpl>()),
-      child: BlocBuilder<AuthCubit, AuthState>(
-        builder: (context, state) {
-          var cubit = AuthCubit.get(context);
-          return Scaffold(
-            body: SafeArea(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                padding: EdgeInsets.only(
-                    top: 17.h, bottom: 53.h, right: 23.w, left: 23.w),
-                child: Form(
-                  key: cubit.formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Join us now !",
-                        style: Styles.textStyle25,
-                      ),
-                      const ResponsiveSizedBox(
-                        height: 46,
-                      ),
-                      SignUpTextFormFieldsSec(
-                        phoneController: cubit.phoneController,
-                        cubit: cubit,
-                        emailController: cubit.emailController,
-                        nameController: cubit.nameController,
-                        passwordController: cubit.passController,
-                      ),
-                      const ResponsiveSizedBox(
-                        height: 32,
-                      ),
-                      const SignUpOrSec(),
-                      const ResponsiveSizedBox(
-                        height: 32,
-                      ),
-                      SignUpButtonToEndSec(
-                        condition: state is SignUpLoading,
-                        onPressed: () async {
-                          if (cubit.formKey.currentState!.validate()) {
-                            await cubit.signUp(
-                              context: context,
-                            );
-                          }
-                        },
-                      ),
-                    ],
-                  ),
+    return BlocBuilder<AuthCubit, AuthState>(
+      builder: (context, state) {
+        var cubit = AuthCubit.get(context);
+        return Scaffold(
+          body: SafeArea(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              padding: EdgeInsets.only(
+                  top: 17.h, bottom: 53.h, right: 23.w, left: 23.w),
+              child: Form(
+                key: cubit.formKey,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Join us now !",
+                      style: Styles.textStyle25,
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 46,
+                    ),
+                    SignUpTextFormFieldsSec(
+                      phoneController: cubit.phoneController,
+                      cubit: cubit,
+                      emailController: cubit.emailController,
+                      nameController: cubit.nameController,
+                      passwordController: cubit.passController,
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 32,
+                    ),
+                    const SignUpOrSec(),
+                    const ResponsiveSizedBox(
+                      height: 32,
+                    ),
+                    SignUpButtonToEndSec(
+                      condition: state is SignUpLoading,
+                      onPressed: () async {
+                        if (cubit.formKey.currentState!.validate()) {
+                          await cubit.signUp(
+                            context: context,
+                          );
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

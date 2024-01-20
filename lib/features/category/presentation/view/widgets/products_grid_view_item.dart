@@ -20,6 +20,7 @@ class ProductsGridViewItem extends StatelessWidget {
       onTap: () {
         navigatorPush(
             ProductDetailsView(
+              image:cubit.categoryProductsModel!.data.data[index].image ,
               discount: 15,
               name: cubit.categoryProductsModel!.data.data[index].name,
               description: cubit.categoryProductsModel!.data.data[index]

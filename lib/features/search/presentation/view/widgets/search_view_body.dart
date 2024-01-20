@@ -80,14 +80,15 @@ class SearchViewBody extends StatelessWidget {
                     Expanded(
                       child: GridView.count(
                         physics: const BouncingScrollPhysics(),
-                        crossAxisCount:2,
-                        mainAxisSpacing:24.h,
-                        crossAxisSpacing:24.w,
-                        childAspectRatio:159.w / 257.h,
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 24.h,
+                        crossAxisSpacing: 24.w,
+                        childAspectRatio: 159.w / 257.h,
                         children: List.generate(
                             cubit.searchModel!.data!.total!,
                             (index) => ProductGridViewItem(
-                              isSearch: true,
+                                isSearch: true,
+                                index: index,
                                 datumSearch:
                                     cubit.searchModel!.data!.data![index])),
                       ),

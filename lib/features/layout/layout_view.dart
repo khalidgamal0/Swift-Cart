@@ -12,7 +12,6 @@ class LayoutView extends StatelessWidget {
       create: (context) => LayoutCubit(),
       child: BlocBuilder<LayoutCubit, LayoutState>(
         builder: (context, state) {
-          AccountCubit.get(context).fetchAccountData();
           var cubit=LayoutCubit.get(context);
           return Scaffold(
             body:cubit.bottomScreen[cubit.currentIndex],

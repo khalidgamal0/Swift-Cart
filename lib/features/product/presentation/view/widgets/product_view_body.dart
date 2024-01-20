@@ -26,7 +26,7 @@ class ProductViewBody extends StatelessWidget {
                 mainAxisSpacing: 24.h,
                 crossAxisSpacing: 24.w,
                 childAspectRatio: 159.w / 257.h,
-                children: List.generate(20, (index) => const ProductGridViewItem()),
+                children: List.generate(20, (index) => const ProductGridViewItem(index: 1,)),
               ),
             ),
           )

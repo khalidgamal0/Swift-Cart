@@ -21,6 +21,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoading());
     var homeResult = await homeRepo.fetchHomeData(token: token!);
     homeResult.fold((failure) {
+      print(failure.errorMessage);
       emit(HomeFailure(failure.errorMessage));
     }, (homeData) {
       homeModel = homeData;

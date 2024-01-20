@@ -5,7 +5,7 @@ import 'package:swifit_cart/features/product_details/presentation/views/widgets/
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView(
       {Key? key,
-      required this.images,
+       this.images,
       required this.name,
       required this.description,
       required this.price,
@@ -13,12 +13,13 @@ class ProductDetailsView extends StatelessWidget {
       required this.discount,
       required this.isFavorite,
       required this.isCart,
-      required this.id})
+      required this.id, required this.image})
       : super(key: key);
-  final List<String> images;
+  final List<String> ?images;
   final String name;
   final String description;
   final String price;
+  final String image;
   final String oldPrice;
   final int discount;
   final bool isFavorite;
@@ -52,7 +53,7 @@ class ProductDetailsView extends StatelessWidget {
         description: description,
         isFavorite: isFavorite,
         isCart: isCart,
-        id: id,
+        id: id, image:image,
       ),
     );
   }

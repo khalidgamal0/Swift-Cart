@@ -23,7 +23,7 @@ class AccountCubit extends Cubit<AccountState> {
   updateAccountData(String name,
       String email,
       String phone,) async {
-    emit(AccountLoadingState());
+    emit(UpdateAccountLoadingState());
     var result = await profileRepo.updateAccountData(
       name,
       email,
