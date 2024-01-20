@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/core/widgets/custom_error_widget.dart';
 import 'package:swifit_cart/features/favorite/presentation/manger/favorite_cubit.dart';
+import '../../../../../core/utils/styles.dart';
 import 'favorite_list_view_item.dart';
 import 'favorite_loading.dart';
 
@@ -17,38 +17,69 @@ class FavouriteViewBody extends StatelessWidget {
         child: BlocBuilder<FavoriteCubit, FavoriteState>(
           builder: (context, state) {
             var cubit = FavoriteCubit.get(context);
-            return Column(children: [
-              SizedBox(
-                height: 20.h,
-              ),
-              if (state is GetFavoriteSuccess )
 
-                Expanded(
-                  child: ListView.separated(
-                    itemBuilder: (context, index) => FavoriteListItem(
-                      favoriteProduct:
-                          cubit.favoriteModel!.data!.data![index].product!,
-                    ),
-                    separatorBuilder: (context, index) => const SizedBox(
-                      height: 15,
-                    ),
-                    itemCount: cubit.favoriteModel!.data?.data?.length ?? 1,
+            if (state is GetFavoriteLoading||state is ChangeFavoriteLoading) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 20.h,
                   ),
-                ),
-              if (state is FavoriteLoading)
-                Expanded(
-                  child: ListView.separated(
-                    itemBuilder: (context, index) =>
+                    Expanded(
+                      child: ListView.separated(
+                        itemBuilder: (context, index) =>
                         const FavoriteViewLoading(),
-                    separatorBuilder: (context, index) => const SizedBox(
-                      height: 15,
+                        separatorBuilder: (context, index) => const SizedBox(
+                          height: 15,
+                        ),
+                        itemCount: 6,
+                      ),
                     ),
-                    itemCount: 6,
-                  ),
+                ]);
+            }
+            if (state is GetFavoriteSuccess) {
+              return Column(
+                  children: [
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    if(cubit.favoriteModel!.data!.total==0)
+                      Padding(
+                        padding:  EdgeInsets.only(top:200.h),
+                        child: Text(
+                          "No Favorite have been\n added yet",
+                          style: Styles.textStyle20,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    Expanded(
+                      child: ListView.separated(
+                        itemBuilder: (context, index) => FavoriteListItem(
+                          onTap: (){
+                            cubit.changeFavorite(id: cubit.favoriteModel!.data!.data![index].product!.id!);
+                          },
+                          favoriteProduct:
+                          cubit.favoriteModel!.data!.data![index].product!,
+                        ),
+                        separatorBuilder: (context, index) => const SizedBox(
+                          height: 15,
+                        ),
+                        itemCount: cubit.favoriteModel!.data?.data?.length ?? 1,
+                      ),
+                    ),
+                  ]);
+            }
+            else {
+              return  Center(
+                child: Text(
+                  "an error happen Please try again",
+                  style: Styles.textStyle20,
+                  textAlign: TextAlign.center,
                 ),
-              if (state is GetFavoriteError || cubit.favoriteModel?.data ==null)
-                const CustomErrorWidget(errorMessage: 'kkkkkkk'),
-            ]);
+              );
+
+          }
+
+
           },
         ),
       ),

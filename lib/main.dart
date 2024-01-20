@@ -18,6 +18,8 @@ import 'features/adress/data/repo/address_repo_fimpl.dart';
 import 'features/adress/presentation/manger/address_cubit.dart';
 import 'features/auth/data/repos/auth_repo_implementaion.dart';
 import 'features/auth/presentation/manager/auth_cubit.dart';
+import 'features/cart/data/repo/cart_repo_impl.dart';
+import 'features/cart/presentation/manger/cart_cubit.dart';
 import 'features/favorite/presentation/manger/favorite_cubit.dart';
 import 'features/profile/data/repo/profile_repo_impl.dart';
 import 'features/profile/presentation/manger/account/account_cubit.dart';
@@ -58,6 +60,9 @@ class SwiftCart extends StatelessWidget {
             ),
             BlocProvider(
               create: (context) => FavoriteCubit(getIt.get<FavoriteRepoImpl>())..getFavorite(),
+            ),
+            BlocProvider(
+              create: (context) => CartCubit(getIt.get<CartRepoImpl>()),
             )
           ],
           child: MaterialApp(

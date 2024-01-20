@@ -1,34 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:swifit_cart/constant.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:swifit_cart/core/utils/assets.dart';
-import 'package:swifit_cart/core/utils/resposive_size_config.dart';
-import 'package:swifit_cart/core/utils/styles.dart';
-import 'package:swifit_cart/core/widgets/custom_add_remove_container.dart';
-import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
 
-import '../../../../../core/utils/functions/navigator_push.dart';
-import '../../../../product_details/presentation/views/product_details_view.dart';
-import '../../../data/cart_model.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/utils/resposive_size_config.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../../../core/widgets/custom_add_remove_container.dart';
+import '../../../../../core/widgets/responsive_sized_box.dart';
 
-class CartProductContainer extends StatelessWidget {
-  const CartProductContainer({super.key, required this.cartProduct});
-  final CartProduct cartProduct;
+
+class CartViewLoading extends StatelessWidget {
+  const CartViewLoading({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        navigatorPush(ProductDetailsView(
-            image:cartProduct.image! ,
-            name: cartProduct.name!,
-            description: cartProduct.description!,
-            price: cartProduct.price.toString(),
-            oldPrice: cartProduct.oldPrice.toString(),
-            discount: cartProduct.discount!,
-           isCart:cartProduct.inCart! ,
-            isFavorite:cartProduct.inFavorites! ,
-            id: cartProduct.id!) , context);
-      },
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[300]!,
+      highlightColor: Colors.grey[100]!,
       child: Container(
         padding: EdgeInsetsDirectional.symmetric(vertical: 8.h, horizontal: 14.w),
         height: 130.h,
@@ -43,8 +32,8 @@ class CartProductContainer extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.network(
-              cartProduct.image!,
+            Image.asset(
+              AssetsData.laptop,
               width: 96.w,
               height: 104.h,
               fit: BoxFit.fill,
@@ -59,7 +48,7 @@ class CartProductContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    cartProduct.name!,
+                    'cartProduct.name!',
                     maxLines: 2,
                     style: Styles.textStyle12.copyWith(
                       color: kB60Color,
@@ -87,7 +76,7 @@ class CartProductContainer extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    cartProduct.price!.toString(),
+                   '44646s',
                     style: Styles.textStyle16.copyWith(
                       fontWeight: FontWeight.w500,
                       color: kB60Color,

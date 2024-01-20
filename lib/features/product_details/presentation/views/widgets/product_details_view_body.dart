@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:swifit_cart/core/widgets/custom_button.dart';
 import 'package:swifit_cart/core/widgets/responsive_sized_box.dart';
+import 'package:swifit_cart/features/cart/presentation/manger/cart_cubit.dart';
 import 'package:swifit_cart/features/product_details/presentation/views/widgets/product_details_first_sec.dart';
 import '../../../../../constant.dart';
 import '../../../../../core/utils/styles.dart';
 import 'colors_sec.dart';
 
 class ProductDetailsViewBody extends StatefulWidget {
-  const ProductDetailsViewBody(
-      {Key? key,
-      required this.images,
-      required this.name,
-      required this.description,
-      required this.price,
-      required this.oldPrice,
-      required this.discount, required this.isFavorite, required this.isCart, required this.id})
+  const ProductDetailsViewBody({Key? key,
+    required this.images,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.oldPrice,
+    required this.discount, required this.isFavorite, required this.isCart, required this.id, required this.image})
       : super(key: key);
-  final List<String> images;
+  final List<String>? images;
   final String name;
   final String description;
   final String price;
+  final String image;
   final String oldPrice;
   final int discount;
   final bool isFavorite;
   final bool isCart;
   final int id;
+
   @override
   State<ProductDetailsViewBody> createState() => _ProductDetailsViewBodyState();
 }
@@ -51,6 +54,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
               isFavorite: widget.isFavorite,
               id: widget.id,
               isCart: widget.isCart,
+              image: widget.image,
             ),
             const ColorsSec(),
             const ResponsiveSizedBox(
@@ -63,7 +67,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
                   style: Styles.textStyle18.copyWith(
                     fontWeight: FontWeight.w600,
                     color:
-                        isDown ? kPrimaryColor : kPrimaryColor.withOpacity(.90),
+                    isDown ? kPrimaryColor : kPrimaryColor.withOpacity(.90),
                   ),
                 ),
                 const Spacer(),
@@ -90,7 +94,14 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
             const ResponsiveSizedBox(
               height: 32.98,
             ),
-            const CustomButton(buttonName: 'Add to cart'),
+            BlocBuilder<CartCubit, CartState>(
+              builder: (context, state) {
+                return CustomButton(
+                    buttonName: 'Add to cart', onPressed: () {
+                  CartCubit.get(context).changeCart(id: widget.id);
+                });
+              },
+            ),
             const ResponsiveSizedBox(
               height: 8,
             ),

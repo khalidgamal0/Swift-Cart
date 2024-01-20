@@ -3,8 +3,8 @@ part of 'account_cubit.dart';
 abstract class AccountState {}
 
 class AccountInitial extends AccountState {}
-class AccountLoadingState extends AccountState {}
 
+class AccountLoadingState extends AccountState {}
 class GetAccountSuccessState extends AccountState {
   final AuthModel authModel;
 
@@ -16,6 +16,7 @@ class GetAccountErrorState extends AccountState {
   GetAccountErrorState(this.errorMessage);
 }
 
+class UpdateAccountLoadingState extends AccountState {}
 class UpdateAccountSuccessState extends AccountState {
   final AuthModel authModel;
 

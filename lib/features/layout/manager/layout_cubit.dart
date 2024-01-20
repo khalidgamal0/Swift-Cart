@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:swifit_cart/features/category/presentation/view/category_view.dart';
-
 import '../../cart/presentation/view/cart_view.dart';
 import '../../home/presentation/view/home_view.dart';
 import '../../profile/presentation/view/profile_view.dart';
