@@ -30,6 +30,8 @@ main() async {
   Bloc.observer = AppBlocObserver();
   DioHelper.init();
   await SharedPreference.init();
+  await ScreenUtil.ensureScreenSize();
+
   token = SharedPreference.getData(key: 'token');
   runApp(const SwiftCart());
 }

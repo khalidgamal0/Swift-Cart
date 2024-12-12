@@ -4,10 +4,11 @@ import 'package:swifit_cart/features/home/data/models/categories_model.dart';
 
 import 'list_view_item.dart';
 
-class CategoryListView extends StatelessWidget {
-  const CategoryListView({
+class HomeCategoryListView extends StatelessWidget {
+  const HomeCategoryListView({
     super.key, required this.categoriesModel,
   });
+
   final CategoriesModel categoriesModel;
 
   @override
@@ -21,6 +22,7 @@ class CategoryListView extends StatelessWidget {
         itemBuilder: (context, index) =>  ListViewItem(
           name: categoriesModel.data.data[index].name,
           image: categoriesModel.data.data[index].image,
+          index: index,
         ),
         separatorBuilder: (context, index) => SizedBox(
           width: 24.w,

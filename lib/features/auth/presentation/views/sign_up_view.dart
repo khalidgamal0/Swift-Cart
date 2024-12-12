@@ -26,7 +26,7 @@ class SignUpView extends StatelessWidget {
               padding: EdgeInsets.only(
                   top: 17.h, bottom: 53.h, right: 23.w, left: 23.w),
               child: Form(
-                key: cubit.formKey,
+                key: cubit.formKeyRegister,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -54,7 +54,7 @@ class SignUpView extends StatelessWidget {
                     SignUpButtonToEndSec(
                       condition: state is SignUpLoading,
                       onPressed: () async {
-                        if (cubit.formKey.currentState!.validate()) {
+                        if (cubit.formKeyRegister.currentState!.validate()) {
                           await cubit.signUp(
                             context: context,
                           );

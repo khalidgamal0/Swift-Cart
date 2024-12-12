@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
                 left: 23.w,
               ),
               child: Form(
-                key: cubit.formKey,
+                key: cubit.formKeyLogin,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -67,7 +67,7 @@ class LoginView extends StatelessWidget {
                     LoginResetPasswordToEndSec(
                       condition: state is LoginLoading,
                       onPressed: () {
-                        if (cubit.formKey.currentState!.validate()) {
+                        if (cubit.formKeyLogin.currentState!.validate()) {
                           cubit.userLogin(
                               context:context,);
                         }

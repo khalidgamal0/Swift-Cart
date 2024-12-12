@@ -57,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
                 const ResponsiveSizedBox(
                   height: 29,
                 ),
-                CategoryListView(
+                HomeCategoryListView(
                   categoriesModel: homeCubit.categoriesModel!,
                 ),
                 Padding(

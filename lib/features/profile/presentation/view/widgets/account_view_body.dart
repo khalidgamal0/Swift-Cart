@@ -31,7 +31,16 @@ class AccountViewBody extends StatelessWidget {
           return ListView.builder(itemBuilder: (context, index) => const AccountViewLoading(),
             itemCount:2,);
         }
-        if (state is GetAccountSuccessState) {
+        if (state is GetAccountErrorState){
+          return  Center(
+            child: Text(
+              "an error happen Please try again",
+              style: Styles.textStyle20,
+              textAlign: TextAlign.center,
+            ),
+          );
+
+        }else {
           return SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Padding(
@@ -76,16 +85,7 @@ class AccountViewBody extends StatelessWidget {
             ),
           );
         }
-        else {
-          return  Center(
-            child: Text(
-              "an error happen Please try again",
-              style: Styles.textStyle20,
-              textAlign: TextAlign.center,
-            ),
-          );
 
-        }
       },
     );
   }

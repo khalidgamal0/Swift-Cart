@@ -12,11 +12,11 @@ class CategoryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-            onTap: (){
-              navigatorPush(const LayoutView(), context);
-            },
-            child: const Icon(Icons.arrow_back,color: kPrimaryColor,)),
+        // leading: GestureDetector(
+        //     onTap: (){
+        //       navigatorPush(const LayoutView(), context);
+        //     },
+        //     child: const Icon(Icons.arrow_back,color: kPrimaryColor,)),
         title: Text(
           "Categories",
           style: Styles.textStyle18,

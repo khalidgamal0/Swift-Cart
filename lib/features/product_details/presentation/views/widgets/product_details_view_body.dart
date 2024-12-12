@@ -96,7 +96,7 @@ class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
             ),
             BlocBuilder<CartCubit, CartState>(
               builder: (context, state) {
-                return CustomButton(
+                return state is ChangeCartLoading?const Center(child: CircularProgressIndicator(color: kPrimaryColor,)) :CustomButton(
                     buttonName: 'Add to cart', onPressed: () {
                   CartCubit.get(context).changeCart(id: widget.id);
                 });

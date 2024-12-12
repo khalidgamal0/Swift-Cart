@@ -27,59 +27,60 @@ class SearchViewBody extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 8.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      InkWell(
-                          onTap: () {
-                            navigatorPush(const LayoutView(), context);
-                          },
-                          child: const Icon(Icons.arrow_circle_left_outlined)),
-                      const ResponsiveSizedBox(
-                        width: 40,
-                      ),
-                      Expanded(
-                        child: CustomTextFormField(
-                          controller: cubit.searchController,
-                          type: TextInputType.name,
-                          onChange: (value) {
-                            cubit.fetchSearch(text: value);
-                          },
-                          hintText: 'Search',
-                          suffix: Icons.search,
-                          boarderRadius: 40.w,
-                          fillColor: kPrimaryColor.withOpacity(.05),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              navigatorPush(const LayoutView(), context);
+                            },
+                            child: const Icon(Icons.arrow_circle_left_outlined)),
+                        const ResponsiveSizedBox(
+                          width: 40,
                         ),
-                      ),
-                    ],
-                  ),
-                  const ResponsiveSizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      InkWell(
-                          onTap: () {
-                            cubit.key.currentState!.openDrawer();
-                          },
-                          child: const SearchContainer(word: 'Filters')),
-                      const ResponsiveSizedBox(
-                        width: 24,
-                      ),
-                      const SearchContainer(word: 'ALL'),
-                    ],
-                  ),
-                  const ResponsiveSizedBox(
-                    height: 16,
-                  ),
-                  if (state is SearchSuccess &&
-                      cubit.searchModel?.data?.total != 0 &&
-                      cubit.searchController.text != '')
-                    Expanded(
-                      child: GridView.count(
-                        physics: const BouncingScrollPhysics(),
+                        Expanded(
+                          child: CustomTextFormField(
+                            controller: cubit.searchController,
+                            type: TextInputType.name,
+                            onChange: (value) {
+                              cubit.fetchSearch(text: value);
+                            },
+                            hintText: 'Search',
+                            suffix: Icons.search,
+                            boarderRadius: 40.w,
+                            fillColor: kPrimaryColor.withOpacity(.05),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              cubit.key.currentState!.openDrawer();
+                            },
+                            child: const SearchContainer(word: 'Filters')),
+                        const ResponsiveSizedBox(
+                          width: 24,
+                        ),
+                        const SearchContainer(word: 'ALL'),
+                      ],
+                    ),
+                    const ResponsiveSizedBox(
+                      height: 16,
+                    ),
+                    if (state is SearchSuccess &&
+                        cubit.searchModel?.data?.total != 0 &&
+                        cubit.searchController.text != '')
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics:  const NeverScrollableScrollPhysics(),
                         crossAxisCount: 2,
                         mainAxisSpacing: 24.h,
                         crossAxisSpacing: 24.w,
@@ -92,16 +93,14 @@ class SearchViewBody extends StatelessWidget {
                                 datumSearch:
                                     cubit.searchModel!.data!.data![index])),
                       ),
-                    ),
-                  if (cubit.searchModel?.data?.total == 0 ||
-                      cubit.searchModel?.data?.total == null ||
-                      cubit.searchController.text == '')
-                    const SuccessSearchZeroResult(),
-                  if (state is SearchLoading)
-                    Expanded(
-                      child: GridView.count(
-                        physics: const BouncingScrollPhysics(),
-                        crossAxisCount: 2,
+                    if (cubit.searchModel?.data?.total == 0 ||
+                        cubit.searchModel?.data?.total == null ||
+                        cubit.searchController.text == '')
+                      const SuccessSearchZeroResult(),
+                    if (state is SearchLoading)
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics:  const NeverScrollableScrollPhysics(),                      crossAxisCount: 2,
                         mainAxisSpacing: 24.h,
                         crossAxisSpacing: 24.w,
                         childAspectRatio: 159.w / 257.h,
@@ -109,9 +108,9 @@ class SearchViewBody extends StatelessWidget {
                           6,
                           (index) => const ShimmerSearch(),
                         ),
-                      ),
-                    )
-                ],
+                      )
+                  ],
+                ),
               ),
             ),
           ),

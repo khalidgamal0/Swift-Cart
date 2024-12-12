@@ -33,69 +33,69 @@ class CartViewBody extends StatelessWidget {
                     itemCount: 5,
                   ),
               )
-              : state is GetCartSuccess
-                  ? Column(
-                      children: [
-                        if (cubit.cartModel!.data!.cartItems!.isEmpty)
-                          Padding(
-                            padding: EdgeInsets.only(top: 200.h),
-                            child: Text(
-                              "No cart have been\n added yet",
-                              style: Styles.textStyle20,
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ListView.separated(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: cubit.cartModel!.data!.cartItems!.length,
-                          itemBuilder: (context, index) {
-                            return CartProductContainer(
-                              cartProduct: cubit
-                                  .cartModel!.data!.cartItems![index].product!,
-                            );
-                          },
-                          separatorBuilder: (context, index) {
-                            return const ResponsiveSizedBox(
-                              height: 16,
-                            );
-                          },
-                        ),
-                        const ResponsiveSizedBox(
-                          height: 40,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Total :",
-                              style: Styles.textStyle18.copyWith(
-                                color: kB60Color,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            const Spacer(),
-                            Text(
-                              "\$ 874.99",
-                              style: Styles.textStyle16.copyWith(
-                                fontWeight: FontWeight.w500,
-                                color: kB60Color,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const ResponsiveSizedBox(
-                          height: 24,
-                        ),
-                        const CustomButton(buttonName: "Check out"),
-                      ],
-                    )
-                  : Center(
+              : state is GetCartError
+                  ?
+                   Center(
                       child: Text(
                         "an error happen Please try again",
                         style: Styles.textStyle20,
                         textAlign: TextAlign.center,
                       ),
-                    );
+                    ):Column(
+            children: [
+              if (cubit.cartModel!.data!.cartItems!.isEmpty)
+                Padding(
+                  padding: EdgeInsets.only(top: 200.h),
+                  child: Text(
+                    "No cart have been\n added yet",
+                    style: Styles.textStyle20,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ListView.separated(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: cubit.cartModel!.data!.cartItems!.length,
+                itemBuilder: (context, index) {
+                  return CartProductContainer(
+                    cartProduct: cubit
+                        .cartModel!.data!.cartItems![index].product!,
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return const ResponsiveSizedBox(
+                    height: 16,
+                  );
+                },
+              ),
+              const ResponsiveSizedBox(
+                height: 40,
+              ),
+              Row(
+                children: [
+                  Text(
+                    "Total :",
+                    style: Styles.textStyle18.copyWith(
+                      color: kB60Color,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    "\$ ${cubit.cartModel!.data!.total}",
+                    style: Styles.textStyle16.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: kB60Color,
+                    ),
+                  ),
+                ],
+              ),
+              const ResponsiveSizedBox(
+                height: 24,
+              ),
+              const CustomButton(buttonName: "Check out"),
+            ],
+          );
         },
       ),
     );

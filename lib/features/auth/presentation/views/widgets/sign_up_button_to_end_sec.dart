@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,7 +53,7 @@ class SignUpButtonToEndSec extends StatelessWidget {
             CustomTextButton(
               text: "log in",
               onPressed: () {
-                navigatorPush(const LoginView(), context);
+                log('jjjjjjjjjjjjj');Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginView(),));
               },
             ),
           ],

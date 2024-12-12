@@ -19,7 +19,8 @@ class AuthCubit extends Cubit<AuthState> {
   final AuthRepo authRepo;
   AuthModel? authModel;
 
-  var formKey = GlobalKey<FormState>();
+  var formKeyLogin = GlobalKey<FormState>();
+  var formKeyRegister = GlobalKey<FormState>();
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPassController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -79,6 +80,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> signUp({
     required BuildContext context,
   }) async {
+    emit(SignUpLoading());
     var userSignUp = await authRepo.signUp(
         email: emailController.text,
         password: passController.text,

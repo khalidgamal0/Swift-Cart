@@ -27,7 +27,7 @@ class SuccessSearchZeroResult extends StatelessWidget {
             height: 32,
           ),
           Text(
-            "Please enter a suitable word",
+            "Please enter a search word",
             style: Styles.textStyle20,
             textAlign: TextAlign.center,
           ),

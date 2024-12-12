@@ -24,27 +24,26 @@ class CategoryViewBody extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                SizedBox(
-                  height: 50.h,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) =>
-                        CatListViewItem(
-                          index: index,
+              SizedBox(
+              height: 20.h,),
+                ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) =>
+                      CatListViewItem(
+                        index: index,
 
-                        ),
-                    separatorBuilder: (context, index) =>
-                        SizedBox(
-                          height: 24.h,
-                        ),
-                    itemCount: HomeCubit
-                        .get(context)
-                        .categoriesModel!
-                        .data
-                        .data
-                        .length,
-                  ),
+                      ),
+                  separatorBuilder: (context, index) =>
+                      SizedBox(
+                        height: 24.h,
+                      ),
+                  itemCount: HomeCubit
+                      .get(context)
+                      .categoriesModel!
+                      .data
+                      .data
+                      .length,
                 )
               ],
             ),
