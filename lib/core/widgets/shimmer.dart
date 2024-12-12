@@ -30,7 +30,7 @@ Widget shimmerAddressCard() {
               ),
               child: Row(children: [
                 const Padding(
-                  padding: EdgeInsets.only(right: 20, left: 17.0),
+                  padding: EdgeInsets.only(right: 20, left: 16.0),
                   child: CircleAvatar(
                     radius: 25,
                     backgroundColor: Colors.white,
@@ -55,7 +55,7 @@ Widget shimmerAddressCard() {
                         height: 3,
                       ),
                       Container(
-                        width: 100, // Set a fixed width for the shimmering text
+                        width: 80, // Set a fixed width for the shimmering text
                         height: 10,
                         color: Colors.white,
                       ),
@@ -72,14 +72,14 @@ Widget shimmerAddressCard() {
                         height: 3,
                       ),
                       Container(
-                        width: 100, // Set a fixed width for the shimmering text
+                        width: 80, // Set a fixed width for the shimmering text
                         height: 10,
                         color: Colors.white,
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(width: 60),
+                const SizedBox(width: 50),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   child: Column(

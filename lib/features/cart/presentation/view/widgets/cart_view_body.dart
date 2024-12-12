@@ -16,7 +16,6 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartCubit.get(context).fetchCart();
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),

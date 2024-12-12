@@ -27,7 +27,7 @@ class CartCubit extends Cubit<CartState> {
     var data=await cartRepoImpl.changeCart(id: id);
     data.fold((l) =>emit(ChangeCartError()) , (r) {
       changeCartModel=r;
-      emit(ChangeCartSuccess());
+      fetchCart();
     });
   }
 }
